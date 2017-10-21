@@ -7,10 +7,10 @@
 ## 待定内容...
 
 ## 技术选型
-    | 模块 | 说明 | 技术点 | 
-    | - | :-: | -: | 
-    | tmcloud-discovery-eureka-server(port:8761/8762) | 服务注册与发现。 | Spring cloud eureka | 
-    | tmcloud-admin-ui(port:10000) | 服务监控界面。 | Spring boot admin | 
+| 模块 | 说明 | 技术点 | 
+| - | :-: | -: | 
+| tmcloud-discovery-eureka-server(port:8761/8762) | 服务注册与发现。 | Spring cloud eureka | 
+| tmcloud-admin-ui(port:10000) | 服务监控界面。 | Spring boot admin | 
 
     
 
