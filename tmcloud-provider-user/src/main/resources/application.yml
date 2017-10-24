@@ -1,0 +1,9 @@
+mybatis:
+  type-aliases-package: io.github.wesleysugarfree.tmcloud.provider.user.dao.mapper
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/Spittr?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+

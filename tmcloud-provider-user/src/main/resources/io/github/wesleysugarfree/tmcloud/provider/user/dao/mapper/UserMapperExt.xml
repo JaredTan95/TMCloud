@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 重庆交通大学.信息科学与工程学院.
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.github.wesleysugarfree.tmcloud.provider.user.dao.mapper.UserMapperExt">
+    <resultMap id="BaseResultMap" type="io.github.wesleysugarfree.tmcloud.provider.user.dao.domain.User">
+        <id column="s_userid" jdbcType="INTEGER" property="sUserid"/>
+        <result column="s_uaccount" jdbcType="VARCHAR" property="sUaccount"/>
+        <result column="s_upwdsalt" jdbcType="VARCHAR" property="sUpwdsalt"/>
+        <result column="s_upwd" jdbcType="VARCHAR" property="sUpwd"/>
+        <result column="s_unickname" jdbcType="VARCHAR" property="sUnickname"/>
+        <result column="s_uemail" jdbcType="VARCHAR" property="sUemail"/>
+        <result column="s_unone" jdbcType="VARCHAR" property="sUnone"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    s_userid, s_uaccount, s_upwdsalt, s_upwd, s_unickname, s_uemail, s_unone, update_time
+  </sql>
+    <select id="selectSelective" parameterType="io.github.wesleysugarfree.tmcloud.provider.user.dao.domain.User"
+            resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM S_users
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="sUserid != null">
+                s_userid = #{sUserid,jdbcType=INTEGER}
+            </if>
+            <if test="sUaccount != null">
+                AND s_uaccount = #{sUaccount,jdbcType=VARCHAR}
+            </if>
+            <if test="sUpwdsalt != null">
+                AND s_upwdsalt = #{sUpwdsalt,jdbcType=VARCHAR}
+            </if>
+            <if test="sUpwd != null">
+                AND s_upwd = #{sUpwd,jdbcType=VARCHAR}
+            </if>
+            <if test="sUnickname != null">
+                AND s_unickname = #{sUnickname,jdbcType=VARCHAR}
+            </if>
+            <if test="sUemail != null">
+                AND s_uemail = #{sUemail,jdbcType=VARCHAR}
+            </if>
+            <if test="sUnone != null">
+                AND s_unone = #{sUnone,jdbcType=VARCHAR}
+            </if>
+            <if test="updateTime != null">
+                AND update_time = #{updateTime,jdbcType=TIMESTAMP}
+            </if>
+        </trim>
+    </select>
+</mapper>

@@ -11,6 +11,7 @@
     <modules>
         <module>tmcloud-discovery-eureka-server</module>
         <module>tmcloud-admin-ui</module>
+        <module>tmcloud-provider-user</module>
     </modules>
 
 

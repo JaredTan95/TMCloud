@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.github.wesleysugarfree.tmcloud.provider.user.dao.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="io.github.wesleysugarfree.tmcloud.provider.user.dao.domain.User">
+    <id column="s_userid" jdbcType="INTEGER" property="sUserid" />
+    <result column="s_uaccount" jdbcType="VARCHAR" property="sUaccount" />
+    <result column="s_upwdsalt" jdbcType="VARCHAR" property="sUpwdsalt" />
+    <result column="s_upwd" jdbcType="VARCHAR" property="sUpwd" />
+    <result column="s_unickname" jdbcType="VARCHAR" property="sUnickname" />
+    <result column="s_uemail" jdbcType="VARCHAR" property="sUemail" />
+    <result column="s_unone" jdbcType="VARCHAR" property="sUnone" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    s_userid, s_uaccount, s_upwdsalt, s_upwd, s_unickname, s_uemail, s_unone, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from S_users
+    where s_userid = #{sUserid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from S_users
+    where s_userid = #{sUserid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="io.github.wesleysugarfree.tmcloud.provider.user.dao.domain.User">
+    insert into S_users (s_userid, s_uaccount, s_upwdsalt, 
+      s_upwd, s_unickname, s_uemail, 
+      s_unone, update_time)
+    values (#{sUserid,jdbcType=INTEGER}, #{sUaccount,jdbcType=VARCHAR}, #{sUpwdsalt,jdbcType=VARCHAR}, 
+      #{sUpwd,jdbcType=VARCHAR}, #{sUnickname,jdbcType=VARCHAR}, #{sUemail,jdbcType=VARCHAR}, 
+      #{sUnone,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="io.github.wesleysugarfree.tmcloud.provider.user.dao.domain.User">
+    insert into S_users
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sUserid != null">
+        s_userid,
+      </if>
+      <if test="sUaccount != null">
+        s_uaccount,
+      </if>
+      <if test="sUpwdsalt != null">
+        s_upwdsalt,
+      </if>
+      <if test="sUpwd != null">
+        s_upwd,
+      </if>
+      <if test="sUnickname != null">
+        s_unickname,
+      </if>
+      <if test="sUemail != null">
+        s_uemail,
+      </if>
+      <if test="sUnone != null">
+        s_unone,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sUserid != null">
+        #{sUserid,jdbcType=INTEGER},
+      </if>
+      <if test="sUaccount != null">
+        #{sUaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="sUpwdsalt != null">
+        #{sUpwdsalt,jdbcType=VARCHAR},
+      </if>
+      <if test="sUpwd != null">
+        #{sUpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="sUnickname != null">
+        #{sUnickname,jdbcType=VARCHAR},
+      </if>
+      <if test="sUemail != null">
+        #{sUemail,jdbcType=VARCHAR},
+      </if>
+      <if test="sUnone != null">
+        #{sUnone,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="io.github.wesleysugarfree.tmcloud.provider.user.dao.domain.User">
+    update S_users
+    <set>
+      <if test="sUaccount != null">
+        s_uaccount = #{sUaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="sUpwdsalt != null">
+        s_upwdsalt = #{sUpwdsalt,jdbcType=VARCHAR},
+      </if>
+      <if test="sUpwd != null">
+        s_upwd = #{sUpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="sUnickname != null">
+        s_unickname = #{sUnickname,jdbcType=VARCHAR},
+      </if>
+      <if test="sUemail != null">
+        s_uemail = #{sUemail,jdbcType=VARCHAR},
+      </if>
+      <if test="sUnone != null">
+        s_unone = #{sUnone,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where s_userid = #{sUserid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="io.github.wesleysugarfree.tmcloud.provider.user.dao.domain.User">
+    update S_users
+    set s_uaccount = #{sUaccount,jdbcType=VARCHAR},
+      s_upwdsalt = #{sUpwdsalt,jdbcType=VARCHAR},
+      s_upwd = #{sUpwd,jdbcType=VARCHAR},
+      s_unickname = #{sUnickname,jdbcType=VARCHAR},
+      s_uemail = #{sUemail,jdbcType=VARCHAR},
+      s_unone = #{sUnone,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where s_userid = #{sUserid,jdbcType=INTEGER}
+  </update>
+</mapper>
