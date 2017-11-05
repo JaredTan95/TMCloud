@@ -1,9 +1,23 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      #利用【公益】开放一台Eureka注册中心给各位Spring Cloud爱好者
+      #Dashboard ： http://eureka.didispace.com/
+      #defaultZone: http://eureka.didispace.com/eureka/
+server:
+  port: 9901
 mybatis:
   type-aliases-package: io.github.wesleysugarfree.tmcloud.provider.user.dao.mapper
 spring:
+  application:
+      name: UserService-Provider
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/Spittr?useUnicode=true&characterEncoding=utf-8
     username: root
     password: root
-
+  mvc:
+    throw-exception-if-no-handler-found: true #当出现 404 错误时, 直接抛出异常
+  resources:
+    add-mappings: false   #不要为我们工程中的资源文件建立映射

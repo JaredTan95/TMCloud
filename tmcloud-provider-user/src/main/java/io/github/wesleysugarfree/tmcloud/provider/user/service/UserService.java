@@ -4,6 +4,7 @@
 
 package io.github.wesleysugarfree.tmcloud.provider.user.service;
 
+import io.github.wesleysugarfree.tmcloud.common.dto.BaseResult;
 import io.github.wesleysugarfree.tmcloud.provider.user.dao.domain.User;
 import io.github.wesleysugarfree.tmcloud.provider.user.dao.mapper.UserMapper;
 import io.github.wesleysugarfree.tmcloud.provider.user.dao.mapper.UserMapperExt;
@@ -24,30 +25,47 @@ public class UserService {
 
     private static Logger logger = LoggerFactory.getLogger(UserService.class);
 
-    public User login(User user) {
-        try {
-            List<User> uLists = userMapperExt.selectSelective(user);
-            if (uLists.size() > 0) {
-                return uLists.get(0);//该用户存在，返回用户信息
-            }
-            return null;
-        } catch (Exception e) {
-            logger.info("", e.getMessage());
-            return null;
+    public BaseResult<User> login(User user) {
+        BaseResult<User> br = new BaseResult<>();
+        List<User> uLists = userMapperExt.selectSelective(user);
+        if (uLists.size() > 0) {
+            User u = uLists.get(0);
+            //该用户存在，返回用户信息
+            logger.info("用户「{}」登录成功. ", u.getsUaccount());
+            return br.setContent(u).setMessage("Confirm successful.");
+        } else {
+            //该用户不存在，返回空信息
+            return br.setContent(null).setMessage("Confirmed failure.");
         }
     }
 
-    public User register(User user) {
+    public BaseResult<User> register(User user) {
+        BaseResult<User> br = new BaseResult<>();
+        List<User> uLists = userMapperExt.selectSelective(user);
+        if (uLists.size() > 0) {
+            //该用户已存在，不能注册
+            return br.setCode("200").setMessage("The user already exists.");
+        } else if (userMapper.insertSelective(user) > 0) {
+            User u = userMapperExt.selectSelective(user).get(0);
+            return br.setContent(u).setMessage("Registered successfully.");
+        } else {
+            return br.setContent(null).setMessage("Registered failure.");
+        }
+    }
+
+    public BaseResult<User> readOneById(int id) {
+        return new BaseResult<User>().setContent(userMapper.selectByPrimaryKey(id));
+    }
+
+    public BaseResult<User> updateOne(User user) throws Exception {
         try {
-            List<User> uLists = userMapperExt.selectSelective(user);
-            if (uLists.size() > 0) {
-                return null;//该用户已存在，不能注册
+            if (userMapper.updateByPrimaryKeySelective(user) > 0) {
+                return new BaseResult<User>().setContent(user).setMessage("Updated successfully.");
             } else {
-                return userMapper.insertSelective(user) > 0 ? user : null;
+                return new BaseResult<User>().setContent(user).setMessage("Updated failure.");
             }
         } catch (Exception e) {
-            logger.info("", e.getMessage());
-            return null;
+            throw new Exception(e.getMessage());
         }
     }
 }

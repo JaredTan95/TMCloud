@@ -34,7 +34,7 @@ public class UserServiceTest {
         User u=new User();
         u.setsUaccount("tanjian");
         u.setsUpwd("Tanjian1002");
-        Assert.assertEquals("tanjian",userService.login(u).getsUaccount());
+        Assert.assertEquals("tanjian",userService.login(u).getContent().getsUaccount());
     }
 
     @Test
@@ -45,7 +45,7 @@ public class UserServiceTest {
         user.setsUpwd("testAccount");
         user.setsUpwdsalt("test");
 
-        Assert.assertNotNull(userService.register(user));
+        Assert.assertNotNull(userService.register(user).getContent());
 
         int insertedId=userMapperExt.selectSelective(user).get(0).getsUserid();
 
