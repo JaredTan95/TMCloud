@@ -2,7 +2,7 @@
  * Copyright (c) 重庆交通大学.信息科学与工程学院.
  */
 
-package io.github.wesleysugarfree.tmcloud.provider.user.dao.test;
+package io.github.wesleysugarfree.tmcloud.provider.user.dao;
 
 import io.github.wesleysugarfree.tmcloud.provider.user.dao.domain.User;
 import io.github.wesleysugarfree.tmcloud.provider.user.dao.mapper.UserMapper;

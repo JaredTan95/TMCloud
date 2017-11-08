@@ -46,6 +46,7 @@ public class UserService {
             //该用户已存在，不能注册
             return br.setCode("200").setMessage("The user already exists.");
         } else if (userMapper.insertSelective(user) > 0) {
+            logger.info("用户「{}」注册成功. ", user.getsUaccount());
             User u = userMapperExt.selectSelective(user).get(0);
             return br.setContent(u).setMessage("Registered successfully.");
         } else {
@@ -60,6 +61,7 @@ public class UserService {
     public BaseResult<User> updateOne(User user) throws Exception {
         try {
             if (userMapper.updateByPrimaryKeySelective(user) > 0) {
+                logger.info("用户「{}」更新成功. ", user.getsUaccount());
                 return new BaseResult<User>().setContent(user).setMessage("Updated successfully.");
             } else {
                 return new BaseResult<User>().setContent(user).setMessage("Updated failure.");

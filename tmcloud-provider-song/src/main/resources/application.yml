@@ -6,12 +6,12 @@ eureka:
       #Dashboard ： http://eureka.didispace.com/
       #defaultZone: http://eureka.didispace.com/eureka/
 server:
-  port: 9901
+  port: 9902
 mybatis:
   type-aliases-package: io.github.wesleysugarfree.tmcloud.provider.user.dao.mapper
 spring:
   application:
-      name: UserService-Provider
+      name: SongService-Provider
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/Spittr?useUnicode=true&characterEncoding=utf-8

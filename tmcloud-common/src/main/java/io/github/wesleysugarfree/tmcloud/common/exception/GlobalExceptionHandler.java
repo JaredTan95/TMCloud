@@ -12,10 +12,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 全局异常处理类
+ */
 @RestController
 @ControllerAdvice
 public class GlobalExceptionHandler {
-    private Logger logger =  LoggerFactory.getLogger(GlobalExceptionHandler.class);
+    private Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
@@ -23,6 +26,7 @@ public class GlobalExceptionHandler {
         BaseResult<Boolean> br = new BaseResult<>();
         br.setCode("500");
         br.setMessage(e.getMessage());
+        logger.info("Exception:  code:{},Message:{}", br.getCode(), br.getMessage());
         return br;
     }
 
@@ -31,7 +35,8 @@ public class GlobalExceptionHandler {
     public BaseResult<Boolean> errorHandler(BusinessException e) {
         BaseResult<Boolean> br = new BaseResult<>();
         br.setCode(e.getCode());
-        br.setMessage("server internal error.");
+        br.setMessage(e.getMessage());
+        logger.info("BusinessException:  code:{},Message:{}", br.getCode(), br.getMessage());
         return br;
     }
 }

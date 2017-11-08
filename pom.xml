@@ -13,6 +13,7 @@
         <module>tmcloud-admin-ui</module>
         <module>tmcloud-provider-user</module>
         <module>tmcloud-common</module>
+        <module>tmcloud-provider-song</module>
     </modules>
 
     <dependencies>
