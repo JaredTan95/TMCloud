@@ -36,7 +36,7 @@ public class GlobalExceptionHandler {
         BaseResult<Boolean> br = new BaseResult<>();
         br.setCode(e.getCode());
         br.setMessage(e.getMessage());
-        logger.info("BusinessException:  code:{},Message:{}", br.getCode(), br.getMessage());
+        logger.info("BusinessException: code:{},Message:{}", br.getCode(), br.getMessage());
         return br;
     }
 }

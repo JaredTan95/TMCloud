@@ -32,10 +32,10 @@ public class UserService {
             User u = uLists.get(0);
             //该用户存在，返回用户信息
             logger.info("用户「{}」登录成功. ", u.getsUaccount());
-            return br.setContent(u).setMessage("Confirm successful.");
+            return br.setSuccess(true).setContent(u).setMessage("Confirm successful.");
         } else {
             //该用户不存在，返回空信息
-            return br.setContent(null).setMessage("Confirmed failure.");
+            return br.setSuccess(true).setContent(null).setMessage("Confirmed failure.");
         }
     }
 
@@ -48,9 +48,9 @@ public class UserService {
         } else if (userMapper.insertSelective(user) > 0) {
             logger.info("用户「{}」注册成功. ", user.getsUaccount());
             User u = userMapperExt.selectSelective(user).get(0);
-            return br.setContent(u).setMessage("Registered successfully.");
+            return br.setSuccess(true).setContent(u).setMessage("Registered successfully.");
         } else {
-            return br.setContent(null).setMessage("Registered failure.");
+            return br.setSuccess(true).setContent(null).setMessage("Registered failure.");
         }
     }
 
@@ -62,9 +62,9 @@ public class UserService {
         try {
             if (userMapper.updateByPrimaryKeySelective(user) > 0) {
                 logger.info("用户「{}」更新成功. ", user.getsUaccount());
-                return new BaseResult<User>().setContent(user).setMessage("Updated successfully.");
+                return new BaseResult<>(true, user, "200", "Updated successfully.");
             } else {
-                return new BaseResult<User>().setContent(user).setMessage("Updated failure.");
+                return new BaseResult<>(false, user, "500", "Updated failure.");
             }
         } catch (Exception e) {
             throw new Exception(e.getMessage());

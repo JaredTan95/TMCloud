@@ -8,7 +8,7 @@ eureka:
 server:
   port: 9902
 mybatis:
-  type-aliases-package: io.github.wesleysugarfree.tmcloud.provider.user.dao.mapper
+  type-aliases-package: io.github.wesleysugarfree.tmcloud.provider.song.dao.mapper
 spring:
   application:
       name: SongService-Provider

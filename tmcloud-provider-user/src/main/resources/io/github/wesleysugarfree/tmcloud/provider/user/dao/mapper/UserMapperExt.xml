@@ -17,7 +17,7 @@
     </resultMap>
     <sql id="Base_Column_List">
     s_userid, s_uaccount, s_upwdsalt, s_upwd, s_unickname, s_uemail, s_unone, update_time
-  </sql>
+   </sql>
     <select id="selectSelective" parameterType="io.github.wesleysugarfree.tmcloud.provider.user.dao.domain.User"
             resultMap="BaseResultMap">
         SELECT

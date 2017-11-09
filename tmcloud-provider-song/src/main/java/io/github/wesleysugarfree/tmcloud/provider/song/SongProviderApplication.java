@@ -11,7 +11,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication(scanBasePackages = "io.github.wesleysugarfree.tmcloud")
 @EnableEurekaClient
-@MapperScan("io.github.wesleysugarfree.tmcloud.provider.user.dao.mapper")
+@MapperScan("io.github.wesleysugarfree.tmcloud.provider.song.dao.mapper")
 public class SongProviderApplication {
     public static void main(String[] args) {
         SpringApplication.run(SongProviderApplication.class, args);
