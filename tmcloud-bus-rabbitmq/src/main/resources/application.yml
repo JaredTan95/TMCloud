@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: tmcloud-bus-rabbitmq-service
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: tmcloud
+    password: tmcloud

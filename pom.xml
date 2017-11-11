@@ -14,6 +14,8 @@
         <module>tmcloud-provider-user</module>
         <module>tmcloud-common</module>
         <module>tmcloud-provider-song</module>
+        <module>tmcloud-bus-rabbitmq</module>
+        <module>tmcloud-api-gateway</module>
     </modules>
 
     <dependencies>
