@@ -33,34 +33,34 @@
                 s_songid = #{sSongid,jdbcType=INTEGER}
             </if>
             <if test="sSingerid != null">
-                s_singerid = #{sSingerid,jdbcType=INTEGER}
+                AND s_singerid = #{sSingerid,jdbcType=INTEGER}
             </if>
             <if test="sTitle != null">
-                s_title = #{sTitle,jdbcType=VARCHAR}
+                AND s_title = #{sTitle,jdbcType=VARCHAR}
             </if>
             <if test="sSurl != null">
-                s_surl = #{sSurl,jdbcType=VARCHAR}
+                AND s_surl = #{sSurl,jdbcType=VARCHAR}
             </if>
             <if test="sVisited != null">
-                s_visited = #{sVisited,jdbcType=INTEGER}
+                AND s_visited = #{sVisited,jdbcType=INTEGER}
             </if>
             <if test="sVisitedtotal != null">
-                s_visitedTotal = #{sVisitedtotal,jdbcType=INTEGER}
+                AND s_visitedTotal = #{sVisitedtotal,jdbcType=INTEGER}
             </if>
             <if test="sDloaded != null">
-                s_dloaded = #{sDloaded,jdbcType=INTEGER}
+                AND s_dloaded = #{sDloaded,jdbcType=INTEGER}
             </if>
             <if test="sScover != null">
-                s_scover = #{sScover,jdbcType=VARCHAR}
+                AND s_scover = #{sScover,jdbcType=VARCHAR}
             </if>
             <if test="sSmvurl != null">
-                s_smvurl = #{sSmvurl,jdbcType=VARCHAR}
+                AND s_smvurl = #{sSmvurl,jdbcType=VARCHAR}
             </if>
             <if test="sSongdescp != null">
-                s_songdescp = #{sSongdescp,jdbcType=VARCHAR}
+                AND s_songdescp = #{sSongdescp,jdbcType=VARCHAR}
             </if>
             <if test="updateTime != null">
-                update_time = #{updateTime,jdbcType=TIMESTAMP}
+                AND update_time = #{updateTime,jdbcType=TIMESTAMP}
             </if>
         </trim>
     </select>

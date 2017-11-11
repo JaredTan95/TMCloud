@@ -5,7 +5,6 @@
 package io.github.wesleysugarfree.tmcloud.provider.song.service;
 
 import io.github.wesleysugarfree.tmcloud.common.dto.BaseResult;
-import io.github.wesleysugarfree.tmcloud.common.dto.ListResult;
 import io.github.wesleysugarfree.tmcloud.provider.song.dao.domain.Song;
 import io.github.wesleysugarfree.tmcloud.provider.song.dao.mapper.SongMapper;
 import io.github.wesleysugarfree.tmcloud.provider.song.dao.mapper.SongMapperExt;
@@ -51,7 +50,7 @@ public class SongService {
         }
     }
 
-    public ListResult<Song> search(Song song){
-        return new ListResult<>(true,songMapperExt.selectSelective(song),"200","Searched successfully.");
+    public BaseResult<Song> search(Song song){
+        return new BaseResult<>(true,songMapperExt.selectSelective(song),"200","Searched successfully.");
     }
 }

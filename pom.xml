@@ -16,6 +16,7 @@
         <module>tmcloud-provider-song</module>
         <module>tmcloud-bus-rabbitmq</module>
         <module>tmcloud-api-gateway</module>
+        <module>tmcloud-provider-singer</module>
     </modules>
 
     <dependencies>

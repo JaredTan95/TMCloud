@@ -1,6 +1,7 @@
 package io.github.wesleysugarfree.tmcloud.common.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author tanjian
@@ -18,12 +19,14 @@ public class BaseResult<T extends Object> implements Serializable {
     /*请求获取内容*/
     private T content;
 
+    private List<T> contentLists;
+
     /*附加信息*/
     private String message;
 
     /*响应状态码*/
     //默认状态码为200，代表请求成功。
-    private String code="200";
+    private String code = "200";
 
     public BaseResult() {
     }
@@ -55,6 +58,14 @@ public class BaseResult<T extends Object> implements Serializable {
         this.code = code;
         this.content = content;
         this.success = success;
+    }
+
+    /*带有列表参数的构造函数*/
+    public BaseResult(Boolean success, List<T> contentLists, String message, String code) {
+        this.success = success;
+        this.contentLists = contentLists;
+        this.message = message;
+        this.code = code;
     }
 
     public BaseResult<T> success(String message) {
@@ -101,6 +112,14 @@ public class BaseResult<T extends Object> implements Serializable {
     public BaseResult<T> setContent(T content) {
         this.content = content;
         return this;
+    }
+
+    public List<T> getContentLists() {
+        return contentLists;
+    }
+
+    public void setContentLists(List<T> contentLists) {
+        this.contentLists = contentLists;
     }
 
     public String getMessage() {

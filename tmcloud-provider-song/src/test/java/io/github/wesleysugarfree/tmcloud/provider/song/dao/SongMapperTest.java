@@ -60,6 +60,7 @@ public class SongMapperTest {
     public void selectSelectiveTest() {
         Song song = new Song();
         song.setsSingerid(1);
+        song.setsTitle("test");
         Assert.assertEquals(1, songMapperExt.selectSelective(song).size());
     }
 

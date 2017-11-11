@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 重庆交通大学.信息科学与工程学院.
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.github.wesleysugarfree.tmcloud.provider.singer.dao.mapper.SingerMapper">
+  <resultMap id="BaseResultMap" type="io.github.wesleysugarfree.tmcloud.provider.singer.dao.domain.Singer">
+    <id column="s_singerid" jdbcType="INTEGER" property="sSingerid" />
+    <result column="s_sname" jdbcType="VARCHAR" property="sSname" />
+    <result column="s_sgender" jdbcType="INTEGER" property="sSgender" />
+    <result column="s_singerdescp" jdbcType="VARCHAR" property="sSingerdescp" />
+    <result column="s_svisi" jdbcType="INTEGER" property="sSvisi" />
+    <result column="s_spic" jdbcType="VARCHAR" property="sSpic" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    s_singerid, s_sname, s_sgender, s_singerdescp, s_svisi, s_spic, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from S_singer
+    where s_singerid = #{sSingerid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from S_singer
+    where s_singerid = #{sSingerid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="io.github.wesleysugarfree.tmcloud.provider.singer.dao.domain.Singer">
+    insert into S_singer (s_singerid, s_sname, s_sgender, 
+      s_singerdescp, s_svisi, s_spic, 
+      update_time)
+    values (#{sSingerid,jdbcType=INTEGER}, #{sSname,jdbcType=VARCHAR}, #{sSgender,jdbcType=INTEGER}, 
+      #{sSingerdescp,jdbcType=VARCHAR}, #{sSvisi,jdbcType=INTEGER}, #{sSpic,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="io.github.wesleysugarfree.tmcloud.provider.singer.dao.domain.Singer">
+    insert into S_singer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sSingerid != null">
+        s_singerid,
+      </if>
+      <if test="sSname != null">
+        s_sname,
+      </if>
+      <if test="sSgender != null">
+        s_sgender,
+      </if>
+      <if test="sSingerdescp != null">
+        s_singerdescp,
+      </if>
+      <if test="sSvisi != null">
+        s_svisi,
+      </if>
+      <if test="sSpic != null">
+        s_spic,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sSingerid != null">
+        #{sSingerid,jdbcType=INTEGER},
+      </if>
+      <if test="sSname != null">
+        #{sSname,jdbcType=VARCHAR},
+      </if>
+      <if test="sSgender != null">
+        #{sSgender,jdbcType=INTEGER},
+      </if>
+      <if test="sSingerdescp != null">
+        #{sSingerdescp,jdbcType=VARCHAR},
+      </if>
+      <if test="sSvisi != null">
+        #{sSvisi,jdbcType=INTEGER},
+      </if>
+      <if test="sSpic != null">
+        #{sSpic,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="io.github.wesleysugarfree.tmcloud.provider.singer.dao.domain.Singer">
+    update S_singer
+    <set>
+      <if test="sSname != null">
+        s_sname = #{sSname,jdbcType=VARCHAR},
+      </if>
+      <if test="sSgender != null">
+        s_sgender = #{sSgender,jdbcType=INTEGER},
+      </if>
+      <if test="sSingerdescp != null">
+        s_singerdescp = #{sSingerdescp,jdbcType=VARCHAR},
+      </if>
+      <if test="sSvisi != null">
+        s_svisi = #{sSvisi,jdbcType=INTEGER},
+      </if>
+      <if test="sSpic != null">
+        s_spic = #{sSpic,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where s_singerid = #{sSingerid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="io.github.wesleysugarfree.tmcloud.provider.singer.dao.domain.Singer">
+    update S_singer
+    set s_sname = #{sSname,jdbcType=VARCHAR},
+      s_sgender = #{sSgender,jdbcType=INTEGER},
+      s_singerdescp = #{sSingerdescp,jdbcType=VARCHAR},
+      s_svisi = #{sSvisi,jdbcType=INTEGER},
+      s_spic = #{sSpic,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where s_singerid = #{sSingerid,jdbcType=INTEGER}
+  </update>
+</mapper>

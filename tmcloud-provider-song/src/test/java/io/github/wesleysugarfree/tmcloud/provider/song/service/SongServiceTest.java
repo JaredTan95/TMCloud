@@ -33,7 +33,7 @@ public class SongServiceTest {
     public void searchServiceTest() throws Exception {
         Song song=new Song();
         song.setsTitle("test");
-        Assert.assertEquals(1,songService.search(song).getListsContent().size());
+        Assert.assertEquals(1,songService.search(song).getContentLists().size());
     }
 
 }

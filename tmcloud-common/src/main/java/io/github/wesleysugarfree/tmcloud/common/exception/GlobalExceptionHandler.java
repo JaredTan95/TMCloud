@@ -24,6 +24,7 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public BaseResult<Boolean> errorHandler(Exception e) {
         BaseResult<Boolean> br = new BaseResult<>();
+        br.setSuccess(false);
         br.setCode("500");
         br.setMessage(e.getMessage());
         logger.info("Exception:  code:{},Message:{}", br.getCode(), br.getMessage());
@@ -34,6 +35,7 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public BaseResult<Boolean> errorHandler(BusinessException e) {
         BaseResult<Boolean> br = new BaseResult<>();
+        br.setSuccess(false);
         br.setCode(e.getCode());
         br.setMessage(e.getMessage());
         logger.info("BusinessException: code:{},Message:{}", br.getCode(), br.getMessage());

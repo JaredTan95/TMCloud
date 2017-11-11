@@ -2,11 +2,11 @@
  * Copyright (c) 重庆交通大学.信息科学与工程学院.
  */
 
-package io.github.wesleysugarfree.tmcloud.provider.song.rest;
+package io.github.wesleysugarfree.tmcloud.provider.singer.rest;
 
 import io.github.wesleysugarfree.tmcloud.common.dto.BaseResult;
-import io.github.wesleysugarfree.tmcloud.provider.song.dao.domain.Song;
-import io.github.wesleysugarfree.tmcloud.provider.song.service.SongService;
+import io.github.wesleysugarfree.tmcloud.provider.singer.dao.domain.Singer;
+import io.github.wesleysugarfree.tmcloud.provider.singer.service.SingerService;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,68 +15,68 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 @RestController
-@RequestMapping("/songs")
-public class SongProvider {
+@RequestMapping("/singer")
+public class SingerProvider {
     @Resource
-    private SongService songService;
-
+    private SingerService singerService;
+    
     /**
-     * 通过歌曲ID获取歌曲信息
+     * 通过歌手ID获取歌曲信息
      *
      * @param id
      * @return BaseResult
      * @throws Exception
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public BaseResult<Song> get(@PathVariable int id) throws Exception {
-        return songService.readOneById(id);
+    public BaseResult<Singer> get(@PathVariable int id) throws Exception {
+        return singerService.readOneById(id);
     }
 
     /**
-     * 新增一首歌曲
+     * 新增一个歌手
      *
-     * @param song
+     * @param singer
      * @return BaseResult
      * @throws Exception
      */
     @RequestMapping(method = RequestMethod.POST)
-    public BaseResult<Song> post(Song song) throws Exception {
-        return songService.addOne(song);
+    public BaseResult<Singer> post(Singer singer) throws Exception {
+        return singerService.addOne(singer);
     }
 
     /**
-     * 更新一首歌曲信息
+     * 更新一个歌手信息
      *
-     * @param song
+     * @param singer
      * @return BaseResult
      * @throws Exception
      */
     @RequestMapping(method = RequestMethod.PUT)
-    public BaseResult<Song> put(Song song) throws Exception {
-        return songService.updateOne(song);
+    public BaseResult<Singer> put(Singer singer) throws Exception {
+        return singerService.updateOne(singer);
     }
 
     /**
-     * 通过组合条件搜索歌曲列表
+     * 通过组合条件搜索歌手列表
      *
-     * @param song
+     * @param singer
      * @return ListResult
      * @throws Exception
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public BaseResult<Song> getSongs(Song song) throws Exception {
-        return songService.search(song);
+    public BaseResult<Singer> getSongs(Singer singer) throws Exception {
+        return singerService.search(singer);
     }
 
     /**
-     * 删除一首歌曲信息，原则上只能修改歌曲上下架状态
+     * 删除一个歌手信息，原则上只能修改歌手状态
      *
      * @param id
      * @return BaseResult
      * @throws Exception
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public BaseResult<Song> delete(@PathVariable int id) throws Exception {
+    public BaseResult<Singer> delete(@PathVariable int id) throws Exception {
         return null;
     }
 }
