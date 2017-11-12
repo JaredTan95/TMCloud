@@ -18,6 +18,7 @@
 | tmcloud-provider-user(port:9901) | 用户服务提供者。 | Spring Cloud Eureka、Mybatis | 
 | tmcloud-provider-song(port:9902) | 歌曲服务提供者。 | Spring Cloud Eureka、Mybatis | 
 | tmcloud-provider-singer(port:9903) | 歌手服务提供者。 | Spring Cloud Eureka、Mybatis | 
+| tmcloud-provider-album(port:9904) | 专辑服务提供者。 | Spring Cloud Eureka、Mybatis | 
 | tmcloud-bus-rabbitmq | 事件、消息总线服务。 | Spring Cloud Bus | 
 
     

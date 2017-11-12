@@ -9,9 +9,15 @@ spring:
     name: api-gateway-zuul
 zuul:
   routes:
-    api-a:
+    rest-users:
       path: /rest-users/**
       serviceId: UserService-Provider
-    api-b:
+    rest-songs:
       path: /rest-songs/**
       serviceId: SongService-Provider
+    rest-singer:
+      path: /rest-singer/**
+      serviceId: SingerService-Provider
+    rest-album:
+        path: /rest-album/**
+        serviceId: AlbumService-Provider
