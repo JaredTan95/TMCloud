@@ -21,3 +21,6 @@ zuul:
     rest-album:
         path: /rest-album/**
         serviceId: AlbumService-Provider
+    rest-usercomment:
+        path: /rest-usercomment/**
+        serviceId: UserCommentService-Provider
