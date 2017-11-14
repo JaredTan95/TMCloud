@@ -18,6 +18,7 @@
         <module>tmcloud-api-gateway</module>
         <module>tmcloud-provider-singer</module>
         <module>tmcloud-provider-album</module>
+        <module>tmcloud-provider-usercomment</module>
     </modules>
 
     <dependencies>

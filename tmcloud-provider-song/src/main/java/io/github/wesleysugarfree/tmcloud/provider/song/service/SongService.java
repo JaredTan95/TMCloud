@@ -24,7 +24,6 @@ public class SongService {
 
     private static Logger logger = LoggerFactory.getLogger(SongService.class);
 
-
     public BaseResult<Song> addOne(Song song) {
         if(songMapper.insertSelective(song)>0){
             logger.info("添加歌曲: {} 成功.",song.getsTitle());
