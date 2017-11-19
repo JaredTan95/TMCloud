@@ -19,6 +19,7 @@
         <module>tmcloud-provider-singer</module>
         <module>tmcloud-provider-album</module>
         <module>tmcloud-provider-usercomment</module>
+        <module>tmcloud-provider-type</module>
     </modules>
 
     <dependencies>

@@ -24,3 +24,6 @@ zuul:
     rest-usercomment:
         path: /rest-usercomment/**
         serviceId: UserCommentService-Provider
+    rest-songtype:
+        path: /rest-songtype/**
+        serviceid: SongTypeService-Provider

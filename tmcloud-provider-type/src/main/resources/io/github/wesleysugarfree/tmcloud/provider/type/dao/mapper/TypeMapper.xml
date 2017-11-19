@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.github.wesleysugarfree.tmcloud.provider.type.dao.mapper.TypeMapper">
+  <resultMap id="BaseResultMap" type="io.github.wesleysugarfree.tmcloud.provider.type.dao.domain.Type">
+    <id column="s_stid" jdbcType="INTEGER" property="sStid" />
+    <result column="s_sttitle" jdbcType="VARCHAR" property="sSttitle" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    s_stid, s_sttitle, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from S_type
+    where s_stid = #{sStid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from S_type
+    where s_stid = #{sStid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="io.github.wesleysugarfree.tmcloud.provider.type.dao.domain.Type">
+    insert into S_type (s_stid, s_sttitle, update_time
+      )
+    values (#{sStid,jdbcType=INTEGER}, #{sSttitle,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="io.github.wesleysugarfree.tmcloud.provider.type.dao.domain.Type">
+    insert into S_type
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sStid != null">
+        s_stid,
+      </if>
+      <if test="sSttitle != null">
+        s_sttitle,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sStid != null">
+        #{sStid,jdbcType=INTEGER},
+      </if>
+      <if test="sSttitle != null">
+        #{sSttitle,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="io.github.wesleysugarfree.tmcloud.provider.type.dao.domain.Type">
+    update S_type
+    <set>
+      <if test="sSttitle != null">
+        s_sttitle = #{sSttitle,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where s_stid = #{sStid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="io.github.wesleysugarfree.tmcloud.provider.type.dao.domain.Type">
+    update S_type
+    set s_sttitle = #{sSttitle,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where s_stid = #{sStid,jdbcType=INTEGER}
+  </update>
+</mapper>

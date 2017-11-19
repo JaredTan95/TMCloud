@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 重庆交通大学.信息科学与工程学院.
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.github.wesleysugarfree.tmcloud.provider.type.dao.mapper.TypeMapperExt">
+    <resultMap id="BaseResultMap" type="io.github.wesleysugarfree.tmcloud.provider.type.dao.domain.Type">
+        <id column="s_stid" jdbcType="INTEGER" property="sStid"/>
+        <result column="s_sttitle" jdbcType="VARCHAR" property="sSttitle"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    s_stid, s_sttitle, update_time
+  </sql>
+    <select id="selectSelective" parameterType="io.github.wesleysugarfree.tmcloud.provider.type.dao.domain.Type"
+            resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM S_type
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="sStid != null">
+                s_stid = #{sStid,jdbcType=INTEGER}
+            </if>
+            <if test="sSttitle != null">
+                AND s_sttitle = #{sSttitle,jdbcType=VARCHAR}
+            </if>
+            <if test="updateTime != null">
+                AND update_time = #{updateTime,jdbcType=TIMESTAMP}
+            </if>
+        </trim>
+    </select>
+</mapper>
