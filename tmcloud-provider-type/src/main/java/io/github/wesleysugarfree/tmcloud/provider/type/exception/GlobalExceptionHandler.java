@@ -2,9 +2,10 @@
  * Copyright (c) 重庆交通大学.信息科学与工程学院.
  */
 
-package io.github.wesleysugarfree.tmcloud.common.exception;
+package io.github.wesleysugarfree.tmcloud.provider.type.exception;
 
-import io.github.wesleysugarfree.tmcloud.common.dto.BaseResult;
+
+import io.github.wesleysugarfree.tmcloud.provider.type.dto.BaseResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
