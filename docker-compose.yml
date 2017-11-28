@@ -7,6 +7,3 @@ services:
         image: tmcloud-mysql-docker
         ports:
               - "3306:3306"
-    discovery:
-        build:
-          context: ./
