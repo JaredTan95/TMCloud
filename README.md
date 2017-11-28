@@ -23,6 +23,41 @@
 | tmcloud-provider-type(port:9906) | 歌曲类型服务提供者。 | Spring Cloud Eureka、Mybatis | 
 | tmcloud-bus-rabbitmq | 事件、消息总线服务。 | Spring Cloud Bus | 
 
+## 运行
+ ***前提条件：***
+ ```
+ * mvn clean
+ * mvn package -Dmaven.test.skip=true # 将每个项目打包
+ ```
+ - 1. 初始化数据库 
+ 
+ ```sbtshell
+    docker-compose up -d #后台通过docker-compose服务编排程序启动(./docker-compose.yml)mysql数据库镜像（该镜像导入了相关数据）
+ ```
+    如果出现如下信息则代表运行成功：
+    > MySQL Community Server 5.7.20 is running.
+      mysql_1  | 2.开始导入数据....
+      mysql_1  | 3.导入数据完毕....
+      mysql_1  | MySQL Community Server 5.7.20 is running.
+      mysql_1  | 4.开始修改密码....
+      mysql_1  | host user
+      mysql_1  | localhost    mysql.session
+      mysql_1  | localhost    mysql.sys
+      mysql_1  | localhost    root
+      mysql_1  | 5.修改密码完毕....
+      mysql_1  | MySQL Community Server 5.7.20 is running.
+      mysql_1  | mysql容器启动完毕,且数据导入成功
+      
+***数据库连接用户名和密码可在./privileges.sql中查看***
+
+- 2. 依次将每个module里面的Dockerfile构建成镜像
+    例如:
+    ```
+     * cd ./tmcloud-discovery-eureka-server/
+     * docker build -t tmcloud-discovery-docker . #将当前目录下的Dockerfile构建成镜像名为'tmcloud-discovery-docker'的一个镜像
+     * docker run -p 8761:8761 -d tmcloud-discovery-docker #运行上面构建的镜像,同时将容器的8761端口映射到宿主机的8761端口
+     * 打开浏览器访问 http://localhost:8761或者http://127.0.0.1:8761/ 可以查看运行效果
+    ```
     
 
   [1]: https://en.wikipedia.org/wiki/Trailer_music

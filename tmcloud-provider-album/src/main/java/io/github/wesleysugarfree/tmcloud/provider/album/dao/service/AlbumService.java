@@ -4,8 +4,8 @@
 
 package io.github.wesleysugarfree.tmcloud.provider.album.dao.service;
 
-import io.github.wesleysugarfree.tmcloud.common.dto.BaseResult;
 import io.github.wesleysugarfree.tmcloud.provider.album.dao.domain.Album;
+import io.github.wesleysugarfree.tmcloud.provider.album.dao.dto.BaseResult;
 import io.github.wesleysugarfree.tmcloud.provider.album.dao.mapper.AlbumMapper;
 import io.github.wesleysugarfree.tmcloud.provider.album.dao.mapper.AlbumMapperExt;
 import org.slf4j.Logger;

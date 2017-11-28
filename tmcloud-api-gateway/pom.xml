@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ~ Copyright (c) 重庆交通大学.信息科学与工程学院.
-  -->
-
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -64,11 +60,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>io.github.wesleysugarfree.tmcloud</groupId>
-            <artifactId>tmcloud-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 
     <build>
@@ -85,7 +76,7 @@
                     <!--imageName指定了镜像的名字-->
                     <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
                     <!--dockerDirectory指定 Dockerfile 的位置-->
-                    <dockerDirectory>src/main/docker</dockerDirectory>
+                    <dockerDirectory>/</dockerDirectory>
                     <!--resources是指那些需要和 Dockerfile 放在一起，
                     在构建镜像时使用的文件，一般应用 jar 包需要纳入。-->
                     <resources>

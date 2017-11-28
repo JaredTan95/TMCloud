@@ -4,10 +4,10 @@
 
 package io.github.wesleysugarfree.tmcloud.provider.singer.service;
 
-import io.github.wesleysugarfree.tmcloud.common.dto.BaseResult;
 import io.github.wesleysugarfree.tmcloud.provider.singer.dao.domain.Singer;
 import io.github.wesleysugarfree.tmcloud.provider.singer.dao.mapper.SingerMapper;
 import io.github.wesleysugarfree.tmcloud.provider.singer.dao.mapper.SingerMapperExt;
+import io.github.wesleysugarfree.tmcloud.provider.singer.dto.BaseResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

@@ -4,8 +4,8 @@
 
 package io.github.wesleysugarfree.tmcloud.provider.singer.rest;
 
-import io.github.wesleysugarfree.tmcloud.common.dto.BaseResult;
 import io.github.wesleysugarfree.tmcloud.provider.singer.dao.domain.Singer;
+import io.github.wesleysugarfree.tmcloud.provider.singer.dto.BaseResult;
 import io.github.wesleysugarfree.tmcloud.provider.singer.service.SingerService;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

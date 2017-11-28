@@ -4,10 +4,10 @@
 
 package io.github.wesleysugarfree.tmcloud.provider.usercomment.service;
 
-import io.github.wesleysugarfree.tmcloud.common.dto.BaseResult;
 import io.github.wesleysugarfree.tmcloud.provider.usercomment.dao.domain.UserComment;
 import io.github.wesleysugarfree.tmcloud.provider.usercomment.dao.mapper.UserCommentMapper;
 import io.github.wesleysugarfree.tmcloud.provider.usercomment.dao.mapper.UserCommentMapperExt;
+import io.github.wesleysugarfree.tmcloud.provider.usercomment.dto.BaseResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

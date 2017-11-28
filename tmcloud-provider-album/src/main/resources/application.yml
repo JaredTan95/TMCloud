@@ -14,9 +14,9 @@ spring:
       name: AlbumService-Provider
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/Spittr?useUnicode=true&characterEncoding=utf-8
-    username: root
-    password: root
+    url: jdbc:mysql://127.0.0.1:3306/tmcloud_mysql?useUnicode=true&characterEncoding=utf-8
+    username: docker
+    password: 123456
   mvc:
     throw-exception-if-no-handler-found: true #当出现 404 错误时, 直接抛出异常
   resources:

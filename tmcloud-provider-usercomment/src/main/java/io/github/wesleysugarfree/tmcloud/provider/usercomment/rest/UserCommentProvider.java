@@ -4,8 +4,8 @@
 
 package io.github.wesleysugarfree.tmcloud.provider.usercomment.rest;
 
-import io.github.wesleysugarfree.tmcloud.common.dto.BaseResult;
 import io.github.wesleysugarfree.tmcloud.provider.usercomment.dao.domain.UserComment;
+import io.github.wesleysugarfree.tmcloud.provider.usercomment.dto.BaseResult;
 import io.github.wesleysugarfree.tmcloud.provider.usercomment.service.UserCommentService;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

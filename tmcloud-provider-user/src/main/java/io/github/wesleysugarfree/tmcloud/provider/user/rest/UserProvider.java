@@ -4,8 +4,8 @@
 
 package io.github.wesleysugarfree.tmcloud.provider.user.rest;
 
-import io.github.wesleysugarfree.tmcloud.common.dto.BaseResult;
 import io.github.wesleysugarfree.tmcloud.provider.user.dao.domain.User;
+import io.github.wesleysugarfree.tmcloud.provider.user.dto.BaseResult;
 import io.github.wesleysugarfree.tmcloud.provider.user.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
