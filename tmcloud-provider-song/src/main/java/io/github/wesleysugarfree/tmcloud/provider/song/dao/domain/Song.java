@@ -1,115 +1,159 @@
 package io.github.wesleysugarfree.tmcloud.provider.song.dao.domain;
 
-import java.util.Date;
+import javax.persistence.*;
+import java.sql.Timestamp;
 
+@Entity
+@Table(name = "song")
 public class Song {
-    private Integer sSongid;
+    @Id
+    @Column(name = "id",nullable = false)
+    @GeneratedValue
+    private Long id;
 
-    private Integer sSingerid;
+    @Column(name = "singer_id",nullable = false)
+    private Long singerId;
 
-    private String sTitle;
+    @Column(name = "title",nullable = false)
+    private String title;
 
-    private String sSurl;
+    @Column(name = "url",nullable = false)
+    private String url;
 
-    private Integer sVisited;
+    @Column(name = "visited_total")
+    private int visitedTotal;
 
-    private Integer sVisitedtotal;
+    @Column(name = "fav_num")
+    private int favNum;
 
-    private Integer sDloaded;
+    @Column(name = "dloaded")
+    private int dloaded;
 
-    private String sScover;
+    @Column(name = "cover",nullable = false)
+    private String cover;
 
-    private String sSmvurl;
+    @Column(name = "mv_url")
+    private String mvUrl;
 
-    private String sSongdescp;
+    @Column(name = "description")
+    private String description;
 
-    private Date updateTime;
+    @Column(name = "is_deleted")
+    private int isDeleted;
 
-    public Integer getsSongid() {
-        return sSongid;
+    @Column(name = "update_time")
+    private java.sql.Timestamp updateTime;
+
+    public Long getId() {
+        return id;
     }
 
-    public void setsSongid(Integer sSongid) {
-        this.sSongid = sSongid;
+    public int getIsDeleted() {
+        return isDeleted;
     }
 
-    public Integer getsSingerid() {
-        return sSingerid;
+    public void setIsDeleted(int isDeleted) {
+        this.isDeleted = isDeleted;
     }
 
-    public void setsSingerid(Integer sSingerid) {
-        this.sSingerid = sSingerid;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getsTitle() {
-        return sTitle;
+    public Long getSingerId() {
+        return singerId;
     }
 
-    public void setsTitle(String sTitle) {
-        this.sTitle = sTitle == null ? null : sTitle.trim();
+    public void setSingerId(Long singerId) {
+        this.singerId = singerId;
     }
 
-    public String getsSurl() {
-        return sSurl;
+    public String getTitle() {
+        return title;
     }
 
-    public void setsSurl(String sSurl) {
-        this.sSurl = sSurl == null ? null : sSurl.trim();
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public Integer getsVisited() {
-        return sVisited;
+    public String getUrl() {
+        return url;
     }
 
-    public void setsVisited(Integer sVisited) {
-        this.sVisited = sVisited;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
-    public Integer getsVisitedtotal() {
-        return sVisitedtotal;
+    public int getVisitedTotal() {
+        return visitedTotal;
     }
 
-    public void setsVisitedtotal(Integer sVisitedtotal) {
-        this.sVisitedtotal = sVisitedtotal;
+    public void setVisitedTotal(int visitedTotal) {
+        this.visitedTotal = visitedTotal;
     }
 
-    public Integer getsDloaded() {
-        return sDloaded;
+    public int getFavNum() {
+        return favNum;
     }
 
-    public void setsDloaded(Integer sDloaded) {
-        this.sDloaded = sDloaded;
+    public void setFavNum(int favNum) {
+        this.favNum = favNum;
     }
 
-    public String getsScover() {
-        return sScover;
+    public int getDloaded() {
+        return dloaded;
     }
 
-    public void setsScover(String sScover) {
-        this.sScover = sScover == null ? null : sScover.trim();
+    public void setDloaded(int dloaded) {
+        this.dloaded = dloaded;
     }
 
-    public String getsSmvurl() {
-        return sSmvurl;
+    public String getCover() {
+        return cover;
     }
 
-    public void setsSmvurl(String sSmvurl) {
-        this.sSmvurl = sSmvurl == null ? null : sSmvurl.trim();
+    public void setCover(String cover) {
+        this.cover = cover;
     }
 
-    public String getsSongdescp() {
-        return sSongdescp;
+    public String getMvUrl() {
+        return mvUrl;
     }
 
-    public void setsSongdescp(String sSongdescp) {
-        this.sSongdescp = sSongdescp == null ? null : sSongdescp.trim();
+    public void setMvUrl(String mvUrl) {
+        this.mvUrl = mvUrl;
     }
 
-    public Date getUpdateTime() {
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Timestamp getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+    public void setUpdateTime(Timestamp timestamp) {
+        this.updateTime = timestamp;
+    }
+
+    @Override
+    public String toString() {
+        return "Song{" +
+                "id=" + id +
+                ", singerId=" + singerId +
+                ", title='" + title + '\'' +
+                ", url='" + url + '\'' +
+                ", visitedTotal=" + visitedTotal +
+                ", favNum=" + favNum +
+                ", dloaded=" + dloaded +
+                ", cover='" + cover + '\'' +
+                ", mvUrl='" + mvUrl + '\'' +
+                ", description='" + description + '\'' +
+                ", updateTime=" + updateTime +
+                '}';
     }
 }

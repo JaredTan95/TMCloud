@@ -7,17 +7,25 @@ eureka:
       #defaultZone: http://eureka.didispace.com/eureka/
 server:
   port: 9902
-mybatis:
-  type-aliases-package: io.github.wesleysugarfree.tmcloud.provider.song.dao.mapper
 spring:
   application:
       name: SongService-Provider
   datasource:
+      platform: mysql
+      schema: classpath:song.sql
+      data: classpath:data.sql
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://127.0.0.1:3306/tmcloud_mysql?useUnicode=true&characterEncoding=utf-8
-      username: docker
-      password: 123456
+      url: jdbc:mysql://127.0.0.1:3306/TMCloud?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: root
+  jpa:
+      show-sql: true
+      hibernate:
+        ddl-auto: update
   mvc:
     throw-exception-if-no-handler-found: true #当出现 404 错误时, 直接抛出异常
   resources:
-    add-mappings: false           #不要为我们工程中的资源文件建立映射
+    add-mappings: false  #不要为我们工程中的资源文件建立映射
+management:
+  security:
+    enabled: false #暂时关闭Spring security，才能查看actuator 端点监控

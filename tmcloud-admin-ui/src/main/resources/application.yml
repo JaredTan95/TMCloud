@@ -13,3 +13,6 @@ management:
       enabled: false
 info:
   version: @project.version@
+  turbine:
+    clusters: default
+    url: http://localhost:10002/turbine.stream

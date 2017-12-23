@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: eureka-server
+server:
+  port: 8762                    # 指定该Eureka实例的端口
+eureka:
+  instance:
+    #ipAddress: 127.0.0.1
+    hostname: localhost       # 指定该Eureka实例的主机名
+    #prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+      #defaultZone: http://${eureka.instance.ipAddress}:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true

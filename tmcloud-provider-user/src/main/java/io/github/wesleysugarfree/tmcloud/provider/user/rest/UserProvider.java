@@ -65,10 +65,10 @@ public class UserProvider {
      * @return BaseResult
      * @throws Exception
      */
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+ /*   @RequestMapping(value = "/", method = RequestMethod.GET)
     public BaseResult<User> getUsers() throws Exception {
         return null;
-    }
+    }*/
 
     /**
      * 默认不允许删除某个用户信息

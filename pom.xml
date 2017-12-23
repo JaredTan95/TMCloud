@@ -19,6 +19,10 @@
         <module>tmcloud-provider-album</module>
         <module>tmcloud-provider-usercomment</module>
         <module>tmcloud-provider-type</module>
+        <module>tmcloud-provider-aggregate-musicalbum</module>
+        <module>tmcloud-hystrix-dashboard</module>
+        <module>tmcoud-turbine</module>
+        <module>tmcloud-auth</module>
     </modules>
 
     <dependencies>

@@ -8,10 +8,7 @@ package io.github.wesleysugarfree.tmcloud.provider.song.rest;
 import io.github.wesleysugarfree.tmcloud.provider.song.dao.domain.Song;
 import io.github.wesleysugarfree.tmcloud.provider.song.dto.BaseResult;
 import io.github.wesleysugarfree.tmcloud.provider.song.service.SongService;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -28,8 +25,8 @@ public class SongProvider {
      * @return BaseResult
      * @throws Exception
      */
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public BaseResult<Song> get(@PathVariable int id) throws Exception {
+    @GetMapping("/{id}")
+    public BaseResult<Song> get(@PathVariable int id) {
         return songService.readOneById(id);
     }
 
@@ -40,44 +37,44 @@ public class SongProvider {
      * @return BaseResult
      * @throws Exception
      */
-    @RequestMapping(method = RequestMethod.POST)
-    public BaseResult<Song> post(Song song) throws Exception {
+    @PostMapping("/")
+    public BaseResult<Song> post(Song song) {
         return songService.addOne(song);
     }
 
     /**
      * 更新一首歌曲信息
      *
-     * @param song
+     * @param song，前端传参需将"Content-Type"设置为"application/x-www-form-urlencoded"
      * @return BaseResult
      * @throws Exception
      */
-    @RequestMapping(method = RequestMethod.PUT)
+    @PutMapping("/")
     public BaseResult<Song> put(Song song) throws Exception {
         return songService.updateOne(song);
     }
 
     /**
-     * 通过组合条件搜索歌曲列表
-     *
-     * @param song
+     * 通过组合条件(未实现)搜索歌曲列表，
+     * 目前支持通过歌曲标题和歌曲描述关键词搜索。//TODO:***实现组合搜索***
+     * @param q
      * @return ListResult
      * @throws Exception
      */
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public BaseResult<Song> getSongs(Song song) throws Exception {
-        return songService.search(song);
+    @GetMapping("/search")
+    public BaseResult<Song> search(@RequestParam String q) {
+        return songService.search(q,q);
     }
 
     /**
-     * 删除一首歌曲信息，原则上只能修改歌曲上下架状态
+     * 删除一首歌曲信息，原则上只能修改歌曲上下架状态,即逻辑删除.
      *
      * @param id
      * @return BaseResult
      * @throws Exception
      */
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public BaseResult<Song> delete(@PathVariable int id) throws Exception {
-        return null;
+    @DeleteMapping("/{id}")
+    public BaseResult<Object> delete(@PathVariable long id) throws Exception {
+        return songService.deleteOne(id);
     }
 }

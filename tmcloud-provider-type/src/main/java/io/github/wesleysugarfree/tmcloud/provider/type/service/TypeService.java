@@ -4,6 +4,7 @@
 
 package io.github.wesleysugarfree.tmcloud.provider.type.service;
 
+import io.github.wesleysugarfree.tmcloud.provider.type.dao.SongTypeRepository;
 import io.github.wesleysugarfree.tmcloud.provider.type.dao.domain.Type;
 import io.github.wesleysugarfree.tmcloud.provider.type.dao.mapper.TypeMapper;
 import io.github.wesleysugarfree.tmcloud.provider.type.dao.mapper.TypeMapperExt;
@@ -14,13 +15,16 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
-@Service("TypeService")
+@Service("typeService")
 public class TypeService {
     @Resource
     private TypeMapper typeMapper;
 
     @Resource
     private TypeMapperExt typeMapperExt;
+
+    @Resource
+    private SongTypeRepository songTypeRepository;
 
     private static Logger logger = LoggerFactory.getLogger(TypeService.class);
 

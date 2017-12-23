@@ -15,23 +15,33 @@
 | tmcloud-discovery-eureka-server(port:8761/8762) | 服务注册与发现。 | Spring Cloud Eureka | 
 | tmcloud-admin-ui(port:10000) | 服务监控界面。 | Spring Boot Admin | 
 | tmcloud-api-gataway(port:10001) | api网关服务提供者。 | Spring Cloud Zuul | 
+| tmcloud-auth(port:11111) | auth认证中心。 | Spring Cloud Security、JWT | 
+| tmcloud-hystrix-dashboard-with-turbine(port:10002) | 服务容错监控面板。 | Spring Cloud Hysrtix、Turbine | 
 | tmcloud-provider-user(port:9901) | 用户服务提供者。 | Spring Cloud Eureka、Mybatis | 
 | tmcloud-provider-song(port:9902) | 歌曲服务提供者。 | Spring Cloud Eureka、Mybatis | 
 | tmcloud-provider-singer(port:9903) | 歌手服务提供者。 | Spring Cloud Eureka、Mybatis | 
 | tmcloud-provider-album(port:9904) | 专辑服务提供者。 | Spring Cloud Eureka、Mybatis | 
 | tmcloud-provider-usercomment(port:9905) | 用户评论服务提供者。 | Spring Cloud Eureka、Mybatis | 
 | tmcloud-provider-type(port:9906) | 歌曲类型服务提供者。 | Spring Cloud Eureka、Mybatis | 
+| tmcloud-provider-aggregate-musicalbum(port:9911) | 歌曲专辑聚合服务提供者。 | Spring Cloud Eureka、Spring Data JPA | 
 | tmcloud-bus-rabbitmq | 事件、消息总线服务。 | Spring Cloud Bus | 
 
 ## 运行
  ***前提条件：***
+ >将以下内容添加到或根据实际情况修改hosts文件：
  ```
- * mvn clean
- * mvn package -Dmaven.test.skip=true # 将每个项目打包
+ 127.0.0.1 discovery gateway localhost
+ ```
+ - discovery：为Eureka注册中心的hostname
+ - gateway：为网关的hostname
+ 
+ ```
+  mvn clean
+  mvn clean package -Dmaven.test.skip=true # 将每个项目打包
  ```
  - 1. 初始化数据库 
  
- ```sbtshell
+ ```
     docker-compose up -d #后台通过docker-compose服务编排程序启动(./docker-compose.yml)mysql数据库镜像（该镜像导入了相关数据）
  ```
     如果出现如下信息则代表运行成功：
@@ -53,10 +63,10 @@
 - 2. 依次将每个module里面的Dockerfile构建成镜像
     例如:
     ```
-     * cd ./tmcloud-discovery-eureka-server/
-     * docker build -t tmcloud-discovery-docker . #将当前目录下的Dockerfile构建成镜像名为'tmcloud-discovery-docker'的一个镜像
-     * docker run -p 8761:8761 -d tmcloud-discovery-docker #运行上面构建的镜像,同时将容器的8761端口映射到宿主机的8761端口
-     * 打开浏览器访问 http://localhost:8761或者http://127.0.0.1:8761/ 可以查看运行效果
+      cd ./tmcloud-discovery-eureka-server/
+      docker build -t tmcloud-discovery-docker . #将当前目录下的Dockerfile构建成镜像名为'tmcloud-discovery-docker'的一个镜像
+      docker run -p 8761:8761 -d tmcloud-discovery-docker #运行上面构建的镜像,同时将容器的8761端口映射到宿主机的8761端口
+      打开浏览器访问 http://localhost:8761或者http://127.0.0.1:8761/ 可以查看运行效果
     ```
     
 
