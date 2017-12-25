@@ -1,9 +1,5 @@
 version: "2"
 services:
     mysql:
-        build:
-          context: ./
-          dockerfile: ./Dockerfile
-        image: tmcloud-mysql-docker
         ports:
               - "3306:3306"

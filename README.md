@@ -39,28 +39,9 @@
   mvn clean
   mvn clean package -Dmaven.test.skip=true # 将每个项目打包
  ```
- - 1. 初始化数据库 
- 
- ```
-    docker-compose up -d #后台通过docker-compose服务编排程序启动(./docker-compose.yml)mysql数据库镜像（该镜像导入了相关数据）
- ```
-    如果出现如下信息则代表运行成功：
-    > MySQL Community Server 5.7.20 is running.
-      mysql_1  | 2.开始导入数据....
-      mysql_1  | 3.导入数据完毕....
-      mysql_1  | MySQL Community Server 5.7.20 is running.
-      mysql_1  | 4.开始修改密码....
-      mysql_1  | host user
-      mysql_1  | localhost    mysql.session
-      mysql_1  | localhost    mysql.sys
-      mysql_1  | localhost    root
-      mysql_1  | 5.修改密码完毕....
-      mysql_1  | MySQL Community Server 5.7.20 is running.
-      mysql_1  | mysql容器启动完毕,且数据导入成功
-      
-***数据库连接用户名和密码可在./privileges.sql中查看***
+ - 1. 初始化数据库
 
-- 2. 依次将每个module里面的Dockerfile构建成镜像
+ - 2. 依次将每个module里面的Dockerfile构建成镜像
     例如:
     ```
       cd ./tmcloud-discovery-eureka-server/
