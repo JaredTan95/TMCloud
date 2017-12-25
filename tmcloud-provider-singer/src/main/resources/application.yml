@@ -1,22 +1,27 @@
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://discovery:8761/eureka/
       #利用【公益】开放一台Eureka注册中心给各位Spring Cloud爱好者
       #Dashboard ： http://eureka.didispace.com/
       #defaultZone: http://eureka.didispace.com/eureka/
 server:
   port: 9903
-mybatis:
-  type-aliases-package: io.github.wesleysugarfree.tmcloud.provider.singer.dao.mapper
 spring:
   application:
       name: SingerService-Provider
   datasource:
+      platform: mysql
+      schema: classpath:singer.sql
+      data: classpath:data.sql
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://127.0.0.1:3306/tmcloud_mysql?useUnicode=true&characterEncoding=utf-8
-      username: docker
-      password: 123456
+      url: jdbc:mysql://127.0.0.1:3306/TMCloud?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: root
+  jpa:
+      show-sql: true
+      hibernate:
+        ddl-auto: update
   mvc:
     throw-exception-if-no-handler-found: true #当出现 404 错误时, 直接抛出异常
   resources:

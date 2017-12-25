@@ -5,41 +5,50 @@
 package io.github.wesleysugarfree.tmcloud.provider.singer.service;
 
 import io.github.wesleysugarfree.tmcloud.provider.singer.dao.domain.Singer;
-import io.github.wesleysugarfree.tmcloud.provider.singer.dao.mapper.SingerMapper;
-import io.github.wesleysugarfree.tmcloud.provider.singer.dao.mapper.SingerMapperExt;
+import io.github.wesleysugarfree.tmcloud.provider.singer.dao.repository.SingerRepository;
 import io.github.wesleysugarfree.tmcloud.provider.singer.dto.BaseResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Objects;
 
 @Service("singerService")
 public class SingerService {
     @Resource
-    private SingerMapper singerMapper;
-
-    @Resource
-    private SingerMapperExt singerMapperExt;
+    private SingerRepository repository;
 
     private static Logger logger = LoggerFactory.getLogger(SingerService.class);
 
     public BaseResult<Singer> addOne(Singer singer) {
-        if (singerMapper.insertSelective(singer) > 0) {
-            logger.info("添加歌手: {} 成功.", singer.getsSname());
+        if (Objects.nonNull(repository.save(singer))) {
+            logger.info("添加歌手: {} 成功.", singer.getSingerName());
             return new BaseResult<>(true, singer, "200", "Added successful.");
         }
         return new BaseResult<>(true, "500", "Added failure.");
     }
 
-    public BaseResult<Singer> readOneById(int id) {
-        return new BaseResult<>(true, singerMapper.selectByPrimaryKey(id), "200", "Read successfully.");
+    public BaseResult<Singer> readOneById(long id) {
+        return new BaseResult<>(true, repository.findOne(id), "200", "Read successfully.");
     }
 
     public BaseResult<Singer> updateOne(Singer singer) throws Exception {
+
         try {
-            if (singerMapper.updateByPrimaryKeySelective(singer) > 0) {
-                logger.info("歌手「{}」更新成功. ", singer.getsSname());
+            //TODO:优化，下面逻辑删除也需要优化。
+            Singer singerOld = repository.findOne(singer.getId());
+
+            singer.setId(singerOld.getId());
+            singer.setSingerName(singerOld.getSingerName());
+            singer.setGender(singerOld.getGender());
+            singer.setDescription(singerOld.getDescription());
+            singer.setVisitedTotal(singerOld.getVisitedTotal());
+            singer.setPicture(singerOld.getPicture());
+            //song.setUpdateTime(); 更新时间采取数据库本地时间
+
+            if (Objects.nonNull(repository.save(singer))) {
+                logger.info("歌手「{}」更新成功. ", singer.getSingerName());
                 return new BaseResult<>(true, singer, "200", "Updated successfully.");
             } else {
                 return new BaseResult<>(false, singer, "500", "Updated failure.");
@@ -49,8 +58,9 @@ public class SingerService {
         }
     }
 
-    public BaseResult<Singer> search(Singer singer) {
-        logger.info("搜索歌手：{}", singer.getsSname());
-        return new BaseResult<>(true, singerMapperExt.selectSelective(singer), "200", "Searched successfully.");
+    public BaseResult<Singer> search(String name) {
+        logger.info("搜索歌手：{}", name);
+        return new BaseResult<>(true, repository.findAllBySingerNameContainingOrderByVisitedTotalDesc(name),
+                "200", "Searched successfully.");
     }
 }

@@ -73,7 +73,8 @@ public class SongService {
     }*/
 
     public BaseResult<Song> search(String title,String description) {
-        return new BaseResult<>(true, repository.findAllByTitleLikeAndDescriptionLike(title, description),
+        return new BaseResult<>(true, repository
+                .findAllByIsDeletedIsAndTitleContainingOrDescriptionContainingOrderByVisitedTotalDesc(0,title, description),
                 "200", "Searched successfully.");
     }
 

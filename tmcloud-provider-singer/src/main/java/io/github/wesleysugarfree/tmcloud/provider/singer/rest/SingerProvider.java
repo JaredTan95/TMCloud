@@ -28,7 +28,7 @@ public class SingerProvider {
      * @throws Exception
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public BaseResult<Singer> get(@PathVariable int id) throws Exception {
+    public BaseResult<Singer> get(@PathVariable int id) {
         return singerService.readOneById(id);
     }
 
@@ -40,7 +40,7 @@ public class SingerProvider {
      * @throws Exception
      */
     @RequestMapping(method = RequestMethod.POST)
-    public BaseResult<Singer> post(Singer singer) throws Exception {
+    public BaseResult<Singer> post(Singer singer) {
         return singerService.addOne(singer);
     }
 
@@ -57,15 +57,15 @@ public class SingerProvider {
     }
 
     /**
-     * 通过组合条件搜索歌手列表
+     * //TODO:通过组合条件搜索歌手列表
      *
-     * @param singer
+     * @param a
      * @return ListResult
      * @throws Exception
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public BaseResult<Singer> getSongs(Singer singer) throws Exception {
-        return singerService.search(singer);
+    public BaseResult<Singer> getSongs(String q) {
+        return singerService.search(q);
     }
 
     /**

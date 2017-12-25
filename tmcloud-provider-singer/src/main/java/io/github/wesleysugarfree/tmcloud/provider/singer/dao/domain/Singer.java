@@ -4,76 +4,101 @@
 
 package io.github.wesleysugarfree.tmcloud.provider.singer.dao.domain;
 
-import java.util.Date;
+import javax.persistence.*;
+import java.sql.Timestamp;
 
+@Entity
+@Table(name = "Singer")
 public class Singer {
-    private Integer sSingerid;
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    private Long id;
 
-    private String sSname;
+    @Column(name = "singer_name")
+    private String singerName;
 
-    private Integer sSgender;
+    @Column(name = "gender")
+    private int gender;
 
-    private String sSingerdescp;
+    @Column(name = "description")
+    private String description;
 
-    private Integer sSvisi;
+    @Column(name = "visited_total")
+    private int visitedTotal;
 
-    private String sSpic;
+    @Column(name = "picture")
+    private String picture;
 
-    private Date updateTime;
+    @Column(name = "update_time")
+    private java.sql.Timestamp updateTime;
 
-    public Integer getsSingerid() {
-        return sSingerid;
+    public Long getId() {
+        return id;
     }
 
-    public void setsSingerid(Integer sSingerid) {
-        this.sSingerid = sSingerid;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getsSname() {
-        return sSname;
+    public String getSingerName() {
+        return singerName;
     }
 
-    public void setsSname(String sSname) {
-        this.sSname = sSname == null ? null : sSname.trim();
+    public void setSingerName(String singerName) {
+        this.singerName = singerName;
     }
 
-    public Integer getsSgender() {
-        return sSgender;
+    public int getGender() {
+        return gender;
     }
 
-    public void setsSgender(Integer sSgender) {
-        this.sSgender = sSgender;
+    public void setGender(int gender) {
+        this.gender = gender;
     }
 
-    public String getsSingerdescp() {
-        return sSingerdescp;
+    public String getDescription() {
+        return description;
     }
 
-    public void setsSingerdescp(String sSingerdescp) {
-        this.sSingerdescp = sSingerdescp == null ? null : sSingerdescp.trim();
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Integer getsSvisi() {
-        return sSvisi;
+    public int getVisitedTotal() {
+        return visitedTotal;
     }
 
-    public void setsSvisi(Integer sSvisi) {
-        this.sSvisi = sSvisi;
+    public void setVisitedTotal(int visitedTotal) {
+        this.visitedTotal = visitedTotal;
     }
 
-    public String getsSpic() {
-        return sSpic;
+    public String getPicture() {
+        return picture;
     }
 
-    public void setsSpic(String sSpic) {
-        this.sSpic = sSpic == null ? null : sSpic.trim();
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
-    public Date getUpdateTime() {
+    public Timestamp getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(Timestamp updateTime) {
         this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Singer{" +
+                "id=" + id +
+                ", singerName='" + singerName + '\'' +
+                ", gender=" + gender +
+                ", description='" + description + '\'' +
+                ", visitedTotal=" + visitedTotal +
+                ", picture='" + picture + '\'' +
+                ", updateTime=" + updateTime +
+                '}';
     }
 }
