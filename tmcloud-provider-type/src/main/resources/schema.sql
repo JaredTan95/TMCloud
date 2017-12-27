@@ -1,7 +1,0 @@
-DROP TABLE IF EXISTS `songType`;
-CREATE TABLE `songType` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(40) NOT NULL,
-  `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1001 DEFAULT CHARSET=utf8;

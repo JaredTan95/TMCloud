@@ -1,35 +1,54 @@
 package io.github.wesleysugarfree.tmcloud.provider.type.dao.domain;
 
-import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.sql.Timestamp;
 
+@Entity
+@Table(name = "type")
 public class Type {
-    private Integer sStid;
+    @Id
+    @Column(name = "id")
+    private Long id;
 
-    private String sSttitle;
+    @Column(name = "title")
+    private String title;
 
-    private Date updateTime;
+    @Column(name = "update_time")
+    private java.sql.Timestamp updateTime;
 
-    public Integer getsStid() {
-        return sStid;
+    public Long getId() {
+        return id;
     }
 
-    public void setsStid(Integer sStid) {
-        this.sStid = sStid;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getsSttitle() {
-        return sSttitle;
+    public String getTitle() {
+        return title;
     }
 
-    public void setsSttitle(String sSttitle) {
-        this.sSttitle = sSttitle == null ? null : sSttitle.trim();
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public Date getUpdateTime() {
+    public Timestamp getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(Timestamp updateTime) {
         this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Type{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", updateTime=" + updateTime +
+                '}';
     }
 }

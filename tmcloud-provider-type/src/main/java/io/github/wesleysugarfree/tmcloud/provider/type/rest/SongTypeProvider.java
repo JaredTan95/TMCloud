@@ -28,7 +28,7 @@ public class SongTypeProvider {
      * @throws Exception
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public BaseResult<Type> get(@PathVariable int id) throws Exception {
+    public BaseResult<Type> get(@PathVariable Long id) {
         return typeService.readOneById(id);
     }
 
@@ -40,7 +40,7 @@ public class SongTypeProvider {
      * @throws Exception
      */
     @RequestMapping(method = RequestMethod.POST)
-    public BaseResult<Type> post(Type type) throws Exception {
+    public BaseResult<Type> post(Type type) {
         return typeService.addOne(type);
     }
 
@@ -64,8 +64,8 @@ public class SongTypeProvider {
      * @throws Exception
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public BaseResult<Type> gettypes(Type type) throws Exception {
-        return typeService.search(type);
+    public BaseResult<Type> gettypes(String q) {
+        return typeService.search(q);
     }
 
     /**
@@ -76,7 +76,7 @@ public class SongTypeProvider {
      * @throws Exception
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public BaseResult<Type> delete(@PathVariable int id) throws Exception {
+    public BaseResult<Type> delete(@PathVariable int id) {
         return null;
     }
 }
