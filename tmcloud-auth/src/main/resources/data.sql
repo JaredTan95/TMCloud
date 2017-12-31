@@ -1,6 +1,5 @@
-INSERT INTO `role` (`role`) VALUES ("ADMIN");
-INSERT INTO `role` (`role`) VALUES ("USER");
-INSERT INTO `user` (`real_name`, `phone`, `password`,`last_password_reset_date`)
-VALUES ("admin", "adminphone", "$2a$08$lDnHPz7eUkSi6ao14Twuau08mzhWrL4kyZGGU5xfiGALO/Vxd5DOi","2017-10-30 06:48:46");
-INSERT INTO `user_role` (`user_id`, `role_id`) VALUES (1, 1);
-INSERT INTO `user_role` (`user_id`, `role_id`) VALUES (1, 2);
+BEGIN;
+INSERT INTO `user` VALUES ('1', 'root', 'root',CURRENT_TIMESTAMP()), ('2', 'test', 'test',CURRENT_TIMESTAMP());
+INSERT INTO `role` VALUES ('1', 'ROLE_ADMIN',CURRENT_TIMESTAMP()), ('2', 'ROLE_USER',CURRENT_TIMESTAMP());
+INSERT INTO `user_roles` VALUES ('1', '1',CURRENT_TIMESTAMP()), ('2', '2',CURRENT_TIMESTAMP());
+COMMIT;
