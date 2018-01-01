@@ -1,5 +1,5 @@
 BEGIN;
-INSERT INTO `user` VALUES ('1', 'root', 'root',CURRENT_TIMESTAMP()), ('2', 'test', 'test',CURRENT_TIMESTAMP());
+INSERT INTO `user` VALUES ('1', 'root', 'root','nickname',CURRENT_TIMESTAMP()), ('2', 'test', 'test','nickname',CURRENT_TIMESTAMP());
 INSERT INTO `role` VALUES ('1', 'ROLE_ADMIN',CURRENT_TIMESTAMP()), ('2', 'ROLE_USER',CURRENT_TIMESTAMP());
 INSERT INTO `user_roles` VALUES ('1', '1',CURRENT_TIMESTAMP()), ('2', '2',CURRENT_TIMESTAMP());
 COMMIT;

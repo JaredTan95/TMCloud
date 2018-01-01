@@ -11,19 +11,4 @@ zuul:
   routes:
     rest-users:
       path: /rest-users/**
-      serviceId: UserService-Provider
-    rest-songs:
-      path: /rest-songs/**
-      serviceId: SongService-Provider
-    rest-singer:
-      path: /rest-singer/**
-      serviceId: SingerService-Provider
-    rest-album:
-        path: /rest-album/**
-        serviceId: AlbumService-Provider
-    rest-usercomment:
-        path: /rest-usercomment/**
-        serviceId: UserCommentService-Provider
-    rest-songtype:
-        path: /rest-songtype/**
-        serviceid: SongTypeService-Provider
+      serviceId: AuthService-Provider

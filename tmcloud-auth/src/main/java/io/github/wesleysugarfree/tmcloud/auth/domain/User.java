@@ -32,6 +32,7 @@ public class User implements UserDetails {
     private Long id;
     private String username;
     private String password;
+    private String nickName;
     private java.sql.Timestamp updateTime;
 
     @ManyToMany(cascade = {CascadeType.MERGE}, fetch = FetchType.EAGER)
@@ -99,6 +100,14 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     public Timestamp getUpdateTime() {

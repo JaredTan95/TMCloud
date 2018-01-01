@@ -12,7 +12,7 @@ server:
   port: 11111
 spring:
   application:
-      name: AuthService
+      name: AuthService-Provider
   datasource:
       platform: mysql
       schema: classpath:user.sql

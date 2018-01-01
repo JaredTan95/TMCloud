@@ -1,13 +1,15 @@
 spring:
   application:
-    name: eureka-server
+    name: tmcloud-eureka-server
 server:
   port: 8761                    # 指定该Eureka实例的端口
 eureka:
   instance:
-    hostname: discovery       # 指定该Eureka实例的主机名
+    hostname: ${hostname:discovery}       # 指定该Eureka实例的主机名
   client:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: false #禁用自我保护机制，及时剔除无响应的服务，建议生产环境打开此配置。
