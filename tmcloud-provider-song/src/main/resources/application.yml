@@ -1,10 +1,10 @@
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      #defaultZone: http://localhost:8761/eureka/
       #利用【公益】开放一台Eureka注册中心给各位Spring Cloud爱好者
       #Dashboard ： http://eureka.didispace.com/
-      #defaultZone: http://eureka.didispace.com/eureka/
+      defaultZone: http://eureka.didispace.com/eureka/
 server:
   port: 9902
 spring:
@@ -24,8 +24,15 @@ spring:
         ddl-auto: update
   mvc:
     throw-exception-if-no-handler-found: true #当出现 404 错误时, 直接抛出异常
+  boot:
+    admin:
+      url: http://localhost:10000
   resources:
     add-mappings: false  #不要为我们工程中的资源文件建立映射
 management:
   security:
     enabled: false #暂时关闭Spring security，才能查看actuator 端点监控
+logging:
+  file: ./SongService.log
+info:
+  source: https://github.com/JaredTan95/TMCloud/tree/master/tmcloud-provider-song

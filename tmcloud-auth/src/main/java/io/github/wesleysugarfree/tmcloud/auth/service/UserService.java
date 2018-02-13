@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -24,6 +25,9 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     private SysRoleRepository sysRoleRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
@@ -58,6 +62,8 @@ public class UserService implements UserDetailsService {
     public User registry(User user, Authority auth) {
         User u = sysUserRepository.findByUsername(user.getUsername());
         if (Objects.nonNull(u)) {
+            //加密密码
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
             List<Role> roleList = new ArrayList<>();
             roleList.add(sysRoleRepository.findByName(auth.name()));
             user.setRoles(roleList);

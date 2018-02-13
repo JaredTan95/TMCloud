@@ -1,18 +1,39 @@
 server:
   port: 10000
 spring:
+  security:
+    user:
+      name: "user"
+      password: "password"
   application:
-    name: admin-ui
+    name: tmcloud-admin-ui
+  mail:
+    host: smtp.partner.outlook.cn
+    username: jian.tan@daocloud.io
+    password: Tanjian1002..
+    port: 587
+  boot:
+    admin:
+      notify:
+        mail:
+          from: jian.tan@daocloud.io
+          to: tanjian20150101@163.com
+      routes:
+        endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream,activiti
+      turbine:
+        clusters: default
+        location: turbine
 eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
   client:
+    registryFetchIntervalSeconds: 5
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: ${EUREKA_SERVICE_URL:http://eureka.didispace.com}/eureka/
+      #defaultZone: http://localhost:8761/eureka/
 management:
   health:
     refresh:
       enabled: false
-info:
-  version: @project.version@
-  turbine:
-    clusters: default
-    url: http://localhost:10002/turbine.stream
+  security:
+    enabled: false #暂时关闭Spring security，才能查看actuator 端点监控

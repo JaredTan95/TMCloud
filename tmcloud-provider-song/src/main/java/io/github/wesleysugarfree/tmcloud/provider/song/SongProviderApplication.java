@@ -8,10 +8,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.context.annotation.Configuration;
 
 @SpringBootApplication(scanBasePackages = "io.github.wesleysugarfree.tmcloud.provider.song")
-//@EnableJpaRepositories(basePackages={"io.github.wesleysugarfree.tmcloud.provider.song.dao.repository"})
-//@EntityScan("io.github.wesleysugarfree.tmcloud.provider.song.dao.domain")
 @EnableEurekaClient
 @EnableCircuitBreaker
 public class SongProviderApplication {
