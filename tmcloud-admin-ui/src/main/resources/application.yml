@@ -8,16 +8,26 @@ spring:
   application:
     name: tmcloud-admin-ui
   mail:
-    host: smtp.partner.outlook.cn
-    username: jian.tan@daocloud.io
-    password: Tanjian1002..
-    port: 587
+    host: smtp.163.com
+    username: tanjian20150101@163.com
+    password: jaredtan95
+    port: 25
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
   boot:
     admin:
       notify:
         mail:
-          from: jian.tan@daocloud.io
-          to: tanjian20150101@163.com
+          from: tanjian20150101@163.com
+          to: jian.tan@daocloud.io #逗号分隔,773767470@qq.com
+          ignore-changes: "UNKNOWN:OFFLINE"
+          subject: "Spring Boot Admin通知: #{application.name} (#{application.id}) is #{to.status}."
+          text: "hi~,your app #{application.name} (#{application.id})\nstatus changed from #{from.status} to #{to.status}\n\n you can learn more about it from #{application.healthUrl}."
       routes:
         endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream,activiti
       turbine:
