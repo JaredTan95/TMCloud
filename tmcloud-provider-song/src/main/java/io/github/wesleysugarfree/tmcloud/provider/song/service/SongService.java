@@ -4,15 +4,15 @@
 
 package io.github.wesleysugarfree.tmcloud.provider.song.service;
 
-import io.github.wesleysugarfree.tmcloud.provider.song.dao.domain.Song;
-import io.github.wesleysugarfree.tmcloud.provider.song.dao.repository.SongRepository;
+import io.github.wesleysugarfree.tmcloud.provider.song.entity.po.Song;
+import io.github.wesleysugarfree.tmcloud.provider.song.repository.SongRepository;
 import io.github.wesleysugarfree.tmcloud.provider.song.dto.BaseResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 import java.util.Objects;
 
 @Service("songService")
@@ -34,9 +34,8 @@ public class SongService {
         return new BaseResult<>(true, repository.findOne(id), "200", "Readed successful.");
     }
 
-    public BaseResult<Song> readAllTopByVisited() {
-        //TODO:默认显示点击率最高的歌曲，且分页显示。
-        return null;
+    public BaseResult<Song> readTopByVisited(Pageable pageable) {
+        return new BaseResult<>(true, repository.findAllOrderByVisitedTotalDesc(pageable), "200", "Readed successful.");
     }
 
     public BaseResult<Song> updateOne(Song song) throws Exception {
@@ -72,9 +71,9 @@ public class SongService {
         return null;
     }*/
 
-    public BaseResult<Song> search(String title,String description) {
+    public BaseResult<Song> search(String title, String description, Pageable pageable) {
         return new BaseResult<>(true, repository
-                .findAllByIsDeletedIsAndTitleContainingOrDescriptionContainingOrderByVisitedTotalDesc(0,title, description),
+                .findByTitleContainingOrDescriptionContainingAndIsDeletedOrderByVisitedTotalDesc(title, description, pageable, 0),
                 "200", "Searched successfully.");
     }
 

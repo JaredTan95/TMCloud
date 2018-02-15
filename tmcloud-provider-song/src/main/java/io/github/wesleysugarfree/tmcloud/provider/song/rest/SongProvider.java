@@ -5,7 +5,7 @@
 package io.github.wesleysugarfree.tmcloud.provider.song.rest;
 
 
-import io.github.wesleysugarfree.tmcloud.provider.song.dao.domain.Song;
+import io.github.wesleysugarfree.tmcloud.provider.song.entity.po.Song;
 import io.github.wesleysugarfree.tmcloud.provider.song.dto.BaseResult;
 import io.github.wesleysugarfree.tmcloud.provider.song.service.SongService;
 import org.springframework.web.bind.annotation.*;

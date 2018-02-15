@@ -1,23 +1,28 @@
-package io.github.wesleysugarfree.tmcloud.provider.song.dao.domain;
+package io.github.wesleysugarfree.tmcloud.provider.song.entity.po;
+
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "song")
+@SQLDelete(sql = "Update song set IsDeleted = 1 where Id = ?")
+@Where(clause = "IsDeleted = 0")
 public class Song {
     @Id
-    @Column(name = "id",nullable = false)
+    @Column(name = "id", nullable = false)
     @GeneratedValue
     private Long id;
 
-    @Column(name = "singer_id",nullable = false)
+    @Column(name = "singer_id", nullable = false)
     private Long singerId;
 
-    @Column(name = "title",nullable = false)
+    @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "url",nullable = false)
+    @Column(name = "url", nullable = false)
     private String url;
 
     @Column(name = "visited_total")
@@ -29,7 +34,7 @@ public class Song {
     @Column(name = "dloaded")
     private int dloaded;
 
-    @Column(name = "cover",nullable = false)
+    @Column(name = "cover", nullable = false)
     private String cover;
 
     @Column(name = "mv_url")
