@@ -32,7 +32,7 @@ spring:
 management:
   security:
     enabled: false #暂时关闭Spring security，才能查看actuator 端点监控
-logging:
-  file: ./SongService.log
+#logging:
+#  file: ./SongService.log
 info:
   source: https://github.com/JaredTan95/TMCloud/tree/master/tmcloud-provider-song

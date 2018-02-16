@@ -20,7 +20,7 @@
         <module>tmcloud-provider-type</module>
         <module>tmcloud-provider-aggregate-musicalbum</module>
         <module>tmcloud-hystrix-dashboard</module>
-        <module>tmcoud-turbine</module>
+        <module>tmcloud-turbine</module>
         <module>tmcloud-auth</module>
     </modules>
 </project>
