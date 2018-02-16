@@ -1,13 +1,10 @@
-/*
- * Copyright (c) 重庆交通大学.信息科学与工程学院.
- */
-
 package io.github.wesleysugarfree.tmcloud.provider.song.rest;
 
 
 import io.github.wesleysugarfree.tmcloud.provider.song.entity.po.Song;
 import io.github.wesleysugarfree.tmcloud.provider.song.dto.BaseResult;
 import io.github.wesleysugarfree.tmcloud.provider.song.service.SongService;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -62,8 +59,8 @@ public class SongProvider {
      * @throws Exception
      */
     @GetMapping("/search")
-    public BaseResult<Song> search(@RequestParam String q) {
-        return songService.search(q,q);
+    public BaseResult<Song> search(@RequestParam String q, Pageable pageable) {
+        return songService.search(q,q,pageable);
     }
 
     /**
