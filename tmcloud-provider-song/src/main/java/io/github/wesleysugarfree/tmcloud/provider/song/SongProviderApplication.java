@@ -10,7 +10,7 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Configuration;
 
-@SpringBootApplication(scanBasePackages = "io.github.wesleysugarfree.tmcloud.provider.song")
+@SpringBootApplication
 @EnableEurekaClient
 @EnableCircuitBreaker
 public class SongProviderApplication {

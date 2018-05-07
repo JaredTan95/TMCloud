@@ -5,7 +5,8 @@ server:
   port: 8761                    # 指定该Eureka实例的端口
 eureka:
   instance:
-    hostname: ${hostname:discovery}       # 指定该Eureka实例的主机名
+    prefer-ip-address: true
+    hostname: ${hostname:localhost}       # 指定该Eureka实例的主机名
   client:
     registerWithEureka: false
     fetchRegistry: false
