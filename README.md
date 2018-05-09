@@ -23,28 +23,10 @@
 | tmcloud-bus-rabbitmq | 事件、消息总线服务。 | Spring Cloud Bus | 
 
 ## 运行
- ***前提条件：***
- >将以下内容添加到或根据实际情况修改hosts文件：
- ```
- 127.0.0.1 discovery gateway localhost
- ```
- - discovery：为Eureka注册中心的hostname
- - gateway：为网关的hostname
- 
+
  ```
   mvn clean
-  mvn clean package -Dmaven.test.skip=true # 将每个项目打包
+  mvn clean package -Dmaven.test.skip=true
  ```
- - 1. 初始化数据库
-
- - 2. 依次将每个module里面的Dockerfile构建成镜像
-    例如:
-    ```
-      cd ./tmcloud-discovery-eureka-server/
-      docker build -t tmcloud-discovery-docker . #将当前目录下的Dockerfile构建成镜像名为'tmcloud-discovery-docker'的一个镜像
-      docker run -p 8761:8761 -d tmcloud-discovery-docker #运行上面构建的镜像,同时将容器的8761端口映射到宿主机的8761端口
-      打开浏览器访问 http://localhost:8761或者http://127.0.0.1:8761/ 可以查看运行效果
-    ```
-    
 
   [1]: https://en.wikipedia.org/wiki/Trailer_music
