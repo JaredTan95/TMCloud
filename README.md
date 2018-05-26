@@ -6,27 +6,6 @@
 
 ## 待定内容...
 
-## 技术选型
-| 模块 | 说明 | 技术点 | 
-| - | :-: | :-: | 
-| tmcloud-discovery-eureka-server(port:8761/8762) | 服务注册与发现。 | Spring Cloud Eureka | 
-| tmcloud-admin-ui(port:10000) | 服务监控界面。 | Spring Boot Admin | 
-| tmcloud-api-gataway(port:10001) | api网关服务提供者。 | Spring Cloud Zuul | 
-| tmcloud-auth(port:11111) | auth认证中心。 | Spring Cloud Security、JWT、Spring Data JPA | 
-| tmcloud-hystrix-dashboard-with-turbine(port:10002) | 服务容错监控面板。 | Spring Cloud Hysrtix、Turbine | 
-| tmcloud-provider-song(port:9902) | 歌曲服务提供者。 | Spring Cloud Eureka、Spring Data JPA | 
-| tmcloud-provider-singer(port:9903) | 歌手服务提供者。 | Spring Cloud Eureka、Spring Data JPA | 
-| tmcloud-provider-album(port:9904) | 专辑服务提供者。 | Spring Cloud Eureka、Spring Data JPA | 
-| tmcloud-provider-usercomment(port:9905) | 用户评论服务提供者。 | Spring Cloud Eureka、Spring Data JPA | 
-| tmcloud-provider-type(port:9906) | 歌曲类型服务提供者。 | Spring Cloud Eureka、Spring Data JPA | 
-| tmcloud-provider-aggregate-musicalbum(port:9911) | 歌曲专辑聚合服务提供者。 | Spring Cloud Eureka、Spring Data JPA | 
-| tmcloud-bus-rabbitmq | 事件、消息总线服务。 | Spring Cloud Bus | 
-
 ## 运行
-
- ```
-  mvn clean
-  mvn clean package -Dmaven.test.skip=true
- ```
 
   [1]: https://en.wikipedia.org/wiki/Trailer_music
