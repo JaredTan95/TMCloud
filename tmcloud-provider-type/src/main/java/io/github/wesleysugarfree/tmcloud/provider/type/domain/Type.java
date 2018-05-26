@@ -1,10 +1,10 @@
-package io.github.wesleysugarfree.tmcloud.provider.type.dao.domain;
+package io.github.wesleysugarfree.tmcloud.provider.type.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "type")
@@ -17,7 +17,7 @@ public class Type {
     private String title;
 
     @Column(name = "update_time")
-    private java.sql.Timestamp updateTime;
+    private LocalDateTime updateTime;
 
     public Long getId() {
         return id;
@@ -35,11 +35,11 @@ public class Type {
         this.title = title;
     }
 
-    public Timestamp getUpdateTime() {
+    public LocalDateTime getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Timestamp updateTime) {
+    public void setUpdateTime(LocalDateTime updateTime) {
         this.updateTime = updateTime;
     }
 

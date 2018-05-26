@@ -1,11 +1,6 @@
-/*
- * Copyright (c) 重庆交通大学.信息科学与工程学院.
- */
-
 package io.github.wesleysugarfree.tmcloud.provider.type.rest;
 
-import io.github.wesleysugarfree.tmcloud.provider.type.dao.domain.Type;
-import io.github.wesleysugarfree.tmcloud.provider.type.dto.BaseResult;
+import io.github.wesleysugarfree.tmcloud.provider.type.domain.Type;
 import io.github.wesleysugarfree.tmcloud.provider.type.service.TypeService;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +11,7 @@ import javax.annotation.Resource;
 
 @RestController
 @RequestMapping("/types")
-public class SongTypeProvider {
+public class MusicTypeController {
     @Resource
     private TypeService typeService;
 
@@ -28,7 +23,7 @@ public class SongTypeProvider {
      * @throws Exception
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public BaseResult<Type> get(@PathVariable Long id) {
+    public Type get(@PathVariable Long id) {
         return typeService.readOneById(id);
     }
 
@@ -40,7 +35,7 @@ public class SongTypeProvider {
      * @throws Exception
      */
     @RequestMapping(method = RequestMethod.POST)
-    public BaseResult<Type> post(Type type) {
+    public Type post(Type type) {
         return typeService.addOne(type);
     }
 
@@ -52,7 +47,7 @@ public class SongTypeProvider {
      * @throws Exception
      */
     @RequestMapping(method = RequestMethod.PUT)
-    public BaseResult<Type> put(Type type) throws Exception {
+    public Type put(Type type) throws Exception {
         return typeService.updateOne(type);
     }
 
@@ -64,7 +59,7 @@ public class SongTypeProvider {
      * @throws Exception
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public BaseResult<Type> gettypes(String q) {
+    public Type getTypes(String q) {
         return typeService.search(q);
     }
 
@@ -76,7 +71,7 @@ public class SongTypeProvider {
      * @throws Exception
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public BaseResult<Type> delete(@PathVariable int id) {
+    public Type delete(@PathVariable int id) {
         return null;
     }
 }
