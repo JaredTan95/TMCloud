@@ -24,21 +24,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
-        <!--        <dependency>
-                    <groupId>de.codecentric</groupId>
-                    <artifactId>spring-boot-admin-server</artifactId>
-                    <version>1.5.4</version>
-                </dependency>
-                <dependency>
-                    <groupId>de.codecentric</groupId>
-                    <artifactId>spring-boot-admin-server-ui</artifactId>
-                    <version>1.5.4</version>
-                </dependency>
-                <dependency>
-                    <groupId>de.codecentric</groupId>
-                    <artifactId>spring-boot-admin-server-ui-turbine</artifactId>
-                    <version>1.4.6</version>
-                </dependency>-->
+
         <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-server</artifactId>
@@ -59,13 +45,6 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-        <!-- <dependency>
-             <groupId>org.springframework.boot</groupId>
-             <artifactId>spring-boot-starter-security</artifactId>
-         </dependency>-->
-
-        <!--The Hystrix module uses the hystrix-dashboard
-        to display the metrics from Hystrix streams.-->
         <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-server-ui-hystrix</artifactId>
@@ -77,18 +56,6 @@
             <artifactId>spring-boot-admin-server-ui-turbine</artifactId>
             <version>1.5.7</version>
         </dependency>
-
-        <dependency>
-            <groupId>de.codecentric</groupId>
-            <artifactId>spring-boot-admin-server-ui-activiti</artifactId>
-            <version>1.5.7</version>
-        </dependency>
-
-        <!-- <dependency>
-             <groupId>de.codecentric</groupId>
-             <artifactId>spring-boot-admin-server-ui-login</artifactId>
-             <version>1.5.7</version>
-         </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -113,24 +80,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <repositories>
-        <repository>
-            <id>nexus-daocloud</id>
-            <name>Nexus daocloud</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
-        </repository>
-
-        <repository>
-            <id>spring-libs-release</id>
-            <name>Spring Releases</name>
-            <url>https://repo.spring.io/libs-release</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-
 
     <build>
         <plugins>
