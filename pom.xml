@@ -11,7 +11,7 @@
     <modules>
         <module>tmcloud-discovery-eureka-server</module>
         <module>tmcloud-admin-ui</module>
-        <module>tmcloud-provider-song</module>
+        <module>tmcloud-provider-music</module>
         <module>tmcloud-api-gateway</module>
         <module>tmcloud-provider-singer</module>
         <module>tmcloud-provider-album</module>
