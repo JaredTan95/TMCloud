@@ -9,7 +9,7 @@ package io.github.wesleysugarfree.tmcloud.provider.music.exception;
  */
 public class BusinessException extends RuntimeException {
 
-    private String code="500";
+    private String code = "500";
     private String msg;
 
     public BusinessException(String code, String msg) {

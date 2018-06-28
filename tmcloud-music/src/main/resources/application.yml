@@ -4,29 +4,24 @@ eureka:
       #defaultZone: http://localhost:8761/eureka/
       #利用【公益】开放一台Eureka注册中心给各位Spring Cloud爱好者
       #Dashboard ： http://eureka.didispace.com/
-      defaultZone: http://eureka.didispace.com/eureka/
+      defaultZone: http://${EUREKA_HOST:eureka.didispace.com}/eureka/
 server:
   port: 9902
 spring:
   application:
-      name: SongService-Provider
+      name: TMCloud-MusicService
   datasource:
       platform: mysql
-      schema: classpath:song.sql
-      data: classpath:data.sql
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://127.0.0.1:3306/TMCloud?useUnicode=true&characterEncoding=utf-8&useSSL=false
-      username: root
-      password: root
+      url: jdbc:mysql://${MYSQL_HOST:127.0.0.1}:3306/TMCloud_Music?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: ${MYSQL_USERNAME:root}
+      password: ${MYSQL_PASSWORD:root}
   jpa:
       show-sql: true
       hibernate:
-        ddl-auto: create
+        ddl-auto: update
   mvc:
     throw-exception-if-no-handler-found: true #当出现 404 错误时, 直接抛出异常
-  boot:
-    admin:
-      url: http://localhost:10000
   resources:
     add-mappings: false  #不要为我们工程中的资源文件建立映射
 management:

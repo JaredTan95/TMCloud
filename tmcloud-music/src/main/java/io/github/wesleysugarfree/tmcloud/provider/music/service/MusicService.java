@@ -15,7 +15,7 @@ import org.springframework.util.Assert;
 import java.util.Objects;
 
 @Slf4j
-@Service("songService")
+@Service("musicService")
 public class MusicService {
     private MusicRepository repository;
 

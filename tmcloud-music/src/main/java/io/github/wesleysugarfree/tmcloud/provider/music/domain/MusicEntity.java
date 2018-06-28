@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
 @Builder
 @Data
 @Entity
-@Table(name = "Song")
-@SQLDelete(sql = "Update Song set Is_Deleted = 1 where Id = ?")
+@Table(name = "Music")
+@SQLDelete(sql = "Update Music set Is_Deleted = 1 where Id = ?")
 @Where(clause = "Is_Deleted = 0")
 public class MusicEntity {
     @Id
