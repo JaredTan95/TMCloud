@@ -1,0 +1,33 @@
+eureka:
+  client:
+    serviceUrl:
+      #defaultZone: http://localhost:8761/eureka/
+      #利用【公益】开放一台Eureka注册中心给各位Spring Cloud爱好者
+      #Dashboard ： http://eureka.didispace.com/
+      defaultZone: http://${EUREKA_HOST:140.143.100.23:8761}/eureka/
+server:
+  port: 9902
+spring:
+  application:
+      name: TMCloud-MusicService
+  datasource:
+      platform: mysql
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://${MYSQL_HOST:140.143.100.23}:3306/TMCloud_Music?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: ${MYSQL_USERNAME:root}
+      password: ${MYSQL_PASSWORD:root}
+  jpa:
+      show-sql: true
+      hibernate:
+        ddl-auto: update
+  mvc:
+    throw-exception-if-no-handler-found: true #当出现 404 错误时, 直接抛出异常
+  resources:
+    add-mappings: false  #不要为我们工程中的资源文件建立映射
+management:
+  security:
+    enabled: false #暂时关闭Spring security，才能查看actuator 端点监控
+#logging:
+#  file: ./SongService.log
+info:
+  source: https://github.com/JaredTan95/TMCloud/tree/master/tmcloud-provider-song

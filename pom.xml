@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.github.wesleysugarfree.tmcloud</groupId>
+    <groupId>io.github.jaredtan95.tmcloud</groupId>
     <artifactId>TMCloud</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
@@ -13,10 +13,6 @@
         <module>tmcloud-admin-ui</module>
         <module>tmcloud-music</module>
         <module>tmcloud-api-gateway</module>
-        <module>tmcloud-provider-singer</module>
-        <module>tmcloud-provider-album</module>
-        <module>tmcloud-provider-usercomment</module>
-        <module>tmcloud-provider-type</module>
         <module>tmcloud-auth</module>
     </modules>
 </project>

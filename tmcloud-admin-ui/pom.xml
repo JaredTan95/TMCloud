@@ -10,7 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.github.wesleysugarfree.tmcloud</groupId>
+    <groupId>io.github.jaredtan95.tmcloud</groupId>
     <artifactId>tmcloud-admin-ui</artifactId>
     <packaging>jar</packaging>
     <properties>
